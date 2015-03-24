@@ -30,7 +30,7 @@
         
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
         
-        sprite.xScale = 0.23;
+        sprite.xScale = 0.25;
         sprite.yScale = 0.12;
         sprite.position = location;
         
