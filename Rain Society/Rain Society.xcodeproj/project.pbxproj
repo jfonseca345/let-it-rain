@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		184093511AC4346500C5AEB1 /* RSAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 184093501AC4346500C5AEB1 /* RSAudioPlayer.m */; };
 		184093541AC43B8E00C5AEB1 /* RSSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 184093531AC43B8E00C5AEB1 /* RSSound.m */; };
+		4F704C4C1AC4503000F2B40D /* RSContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F704C4B1AC4503000F2B40D /* RSContainer.m */; };
 		4F9502481AC1ABF700FC894A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9502471AC1ABF700FC894A /* main.m */; };
 		4F95024B1AC1ABF700FC894A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F95024A1AC1ABF700FC894A /* AppDelegate.m */; };
 		4F95024E1AC1ABF700FC894A /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F95024D1AC1ABF700FC894A /* GameScene.m */; };
@@ -35,6 +36,8 @@
 		184093501AC4346500C5AEB1 /* RSAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAudioPlayer.m; sourceTree = "<group>"; };
 		184093521AC43B8E00C5AEB1 /* RSSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSound.h; sourceTree = "<group>"; };
 		184093531AC43B8E00C5AEB1 /* RSSound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSound.m; sourceTree = "<group>"; };
+		4F704C4A1AC4503000F2B40D /* RSContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSContainer.h; sourceTree = "<group>"; };
+		4F704C4B1AC4503000F2B40D /* RSContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSContainer.m; sourceTree = "<group>"; };
 		4F9502421AC1ABF700FC894A /* Rain Society.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rain Society.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9502461AC1ABF700FC894A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F9502471AC1ABF700FC894A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -82,6 +85,15 @@
 			name = Sons;
 			sourceTree = "<group>";
 		};
+		4F704C491AC44FF500F2B40D /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				4F704C4A1AC4503000F2B40D /* RSContainer.h */,
+				4F704C4B1AC4503000F2B40D /* RSContainer.m */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
 		4F9502391AC1ABF700FC894A = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +115,7 @@
 		4F9502441AC1ABF700FC894A /* Rain Society */ = {
 			isa = PBXGroup;
 			children = (
+				4F704C491AC44FF500F2B40D /* Interface */,
 				18A929ED1AC44C6100358842 /* Sons */,
 				4F9502491AC1ABF700FC894A /* AppDelegate.h */,
 				4F95024A1AC1ABF700FC894A /* AppDelegate.m */,
@@ -251,6 +264,7 @@
 				184093541AC43B8E00C5AEB1 /* RSSound.m in Sources */,
 				4F95024E1AC1ABF700FC894A /* GameScene.m in Sources */,
 				4F9502481AC1ABF700FC894A /* main.m in Sources */,
+				4F704C4C1AC4503000F2B40D /* RSContainer.m in Sources */,
 				184093511AC4346500C5AEB1 /* RSAudioPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
