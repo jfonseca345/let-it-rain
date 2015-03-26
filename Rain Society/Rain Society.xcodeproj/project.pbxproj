@@ -71,6 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18A929ED1AC44C6100358842 /* Sons */ = {
+			isa = PBXGroup;
+			children = (
+				1840934F1AC4346500C5AEB1 /* RSAudioPlayer.h */,
+				184093501AC4346500C5AEB1 /* RSAudioPlayer.m */,
+				184093521AC43B8E00C5AEB1 /* RSSound.h */,
+				184093531AC43B8E00C5AEB1 /* RSSound.m */,
+			);
+			name = Sons;
+			sourceTree = "<group>";
+		};
 		4F9502391AC1ABF700FC894A = {
 			isa = PBXGroup;
 			children = (
@@ -92,14 +103,11 @@
 		4F9502441AC1ABF700FC894A /* Rain Society */ = {
 			isa = PBXGroup;
 			children = (
+				18A929ED1AC44C6100358842 /* Sons */,
 				4F9502491AC1ABF700FC894A /* AppDelegate.h */,
 				4F95024A1AC1ABF700FC894A /* AppDelegate.m */,
 				4F95024C1AC1ABF700FC894A /* GameScene.h */,
 				4F95024D1AC1ABF700FC894A /* GameScene.m */,
-				1840934F1AC4346500C5AEB1 /* RSAudioPlayer.h */,
-				184093501AC4346500C5AEB1 /* RSAudioPlayer.m */,
-				184093521AC43B8E00C5AEB1 /* RSSound.h */,
-				184093531AC43B8E00C5AEB1 /* RSSound.m */,
 				4F95024F1AC1ABF700FC894A /* GameScene.sks */,
 				4F9502511AC1ABF700FC894A /* GameViewController.h */,
 				4F9502521AC1ABF700FC894A /* GameViewController.m */,
