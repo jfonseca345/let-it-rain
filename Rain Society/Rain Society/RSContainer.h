@@ -10,6 +10,6 @@
 
 @interface RSContainer : SKSpriteNode
 
-+(id) initWithSize: (CGRect)size;
++(id) initWithSize: (CGSize)size;
 
 @end

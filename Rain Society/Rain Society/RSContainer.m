@@ -10,12 +10,13 @@
 
 @implementation RSContainer
 
-+(id)initWithSize:(CGRect)size{
++(id)initWithSize:(CGSize)size{
     
     RSContainer* container = [[RSContainer alloc] init];
     [container setAnchorPoint:CGPointMake(0, 0)];
     [container setUserInteractionEnabled:true];
     [container setColor:[UIColor blueColor]];
+    [container setSize:CGSizeMake(1.0, 1.0)];
     
     return container;
 }
