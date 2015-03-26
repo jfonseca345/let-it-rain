@@ -16,6 +16,7 @@
 		4F9502581AC1ABF700FC894A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F9502571AC1ABF700FC894A /* Images.xcassets */; };
 		4F95025B1AC1ABF700FC894A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9502591AC1ABF700FC894A /* LaunchScreen.xib */; };
 		4F9502671AC1ABF700FC894A /* Rain_SocietyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9502661AC1ABF700FC894A /* Rain_SocietyTests.m */; };
+		6F6270C01AC43D3E0069698E /* Campo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6270BF1AC43D3E0069698E /* Campo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		4F9502601AC1ABF700FC894A /* Rain SocietyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rain SocietyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9502651AC1ABF700FC894A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F9502661AC1ABF700FC894A /* Rain_SocietyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rain_SocietyTests.m; sourceTree = "<group>"; };
+		6F6270BE1AC43D3E0069698E /* Campo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Campo.h; sourceTree = "<group>"; };
+		6F6270BF1AC43D3E0069698E /* Campo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Campo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				4F95024A1AC1ABF700FC894A /* AppDelegate.m */,
 				4F95024C1AC1ABF700FC894A /* GameScene.h */,
 				4F95024D1AC1ABF700FC894A /* GameScene.m */,
+				6F6270BE1AC43D3E0069698E /* Campo.h */,
+				6F6270BF1AC43D3E0069698E /* Campo.m */,
 				4F95024F1AC1ABF700FC894A /* GameScene.sks */,
 				4F9502511AC1ABF700FC894A /* GameViewController.h */,
 				4F9502521AC1ABF700FC894A /* GameViewController.m */,
@@ -231,6 +236,7 @@
 				4F9502531AC1ABF700FC894A /* GameViewController.m in Sources */,
 				4F95024B1AC1ABF700FC894A /* AppDelegate.m in Sources */,
 				4F95024E1AC1ABF700FC894A /* GameScene.m in Sources */,
+				6F6270C01AC43D3E0069698E /* Campo.m in Sources */,
 				4F9502481AC1ABF700FC894A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +428,7 @@
 				4F95026C1AC1ABF700FC894A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4F95026D1AC1ABF700FC894A /* Build configuration list for PBXNativeTarget "Rain SocietyTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +437,7 @@
 				4F95026F1AC1ABF700FC894A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
