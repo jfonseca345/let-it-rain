@@ -28,7 +28,7 @@
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
-    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Verdana"];
     
     myLabel.text = @"Hello, World!";
     myLabel.fontSize = 65;
