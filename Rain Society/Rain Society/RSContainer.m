@@ -1,6 +1,6 @@
 //
 //  RSContainer.m
-//  Rain Society
+//  GameZAM
 //
 //  Created by Jucelio Fonseca on 26/03/15.
 //  Copyright (c) 2015 Jucelio Fonseca. All rights reserved.
@@ -10,14 +10,19 @@
 
 @implementation RSContainer
 
-+(id)initWithSize:(CGSize)size{
+-(id)initWithColor:(UIColor*)color{
     
     RSContainer* container = [[RSContainer alloc] init];
-    [container setAnchorPoint:CGPointMake(0, 0)];
     [container setUserInteractionEnabled:true];
-    [container setColor:[UIColor blueColor]];
-    [container setSize:CGSizeMake(1.0, 1.0)];
+    [container setColor:color];
     
     return container;
+}
+
+-(id)init{
+    self = [super init];
+    [self setUserInteractionEnabled:true];
+    
+    return self;
 }
 @end

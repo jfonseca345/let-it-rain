@@ -1,6 +1,6 @@
 //
 //  RSContainer.h
-//  Rain Society
+//  GameZAM
 //
 //  Created by Jucelio Fonseca on 26/03/15.
 //  Copyright (c) 2015 Jucelio Fonseca. All rights reserved.
@@ -10,6 +10,6 @@
 
 @interface RSContainer : SKSpriteNode
 
-+(id) initWithSize: (CGSize)size;
+-(id) initWithColor: (UIColor*) color;
 
 @end
