@@ -8,7 +8,29 @@
 
 #import "GameScene.h"
 #import "RSField.h"
+
+
+@interface GameScene () <SKPhysicsContactDelegate> {
+    SKSpriteNode* _nuvem;
+    SKSpriteNode* _montanha;
+    SKSpriteNode* t1;
+    SKSpriteNode* t2;
+    SKSpriteNode* t3;
+    SKSpriteNode* t4;
+    SKLabelNode* _scoreLabelNode;
+
+}
+@end
+
+
+
+
 @implementation GameScene
+static const uint32_t nuvemCategory = 1 << 0;
+static const uint32_t campoCategory = 1 << 1;
+static const uint32_t obstaculoCategory = 1 << 0;
+
+
 
 - (SKSpriteNode *)Campo
 {
@@ -37,14 +59,22 @@
     //myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
     //                               CGRectGetMidY(self.frame));
     //Leticia brincando com a cena
-    [self setBackgroundColor:[UIColor whiteColor]];
+    [self setBackgroundColor:[UIColor redColor]];
     SKSpriteNode *cidade = [SKSpriteNode spriteNodeWithImageNamed:@"city"];
     cidade.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"city"] size:cidade.frame.size];
-    cidade.position = CGPointMake( 870, 150);
+    cidade.position = CGPointMake( CGRectGetMaxX( self.frame )-cidade.frame.size.width-2, CGRectGetMinY(self.frame)+cidade.frame.size.height );
     cidade.zPosition = 50;
+    cidade.physicsBody.categoryBitMask=obstaculoCategory;
     cidade.physicsBody.dynamic=NO;
     [self addChild:cidade];
-    
+    _scoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"MarkerFelt-Wide"];
+    _scoreLabelNode.position = CGPointMake( CGRectGetMidX( self.frame ), self.frame.size.height / 2 );
+    _scoreLabelNode.text = [NSString stringWithFormat:@"%d", 69696969];
+    [self addChild:_scoreLabelNode];
+    _nuvem = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud"];
+    [self addChild:_nuvem];
+
+    /*
     RSField *T0= [[RSField alloc] init];
     [T0 setWindWithVelocity:0];
     T0.wind.exclusive=NO;
@@ -63,7 +93,7 @@
     [T2 setPressure:0.6];
     //[T2 setWindWithVelocity:-3];
     T2.wind.exclusive=YES;
-    
+    */
 
 
     //fim da sandbox da Leticia
