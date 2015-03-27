@@ -11,6 +11,8 @@
 
 @interface RSButton: RSContainer
 
+@property (copy) void (^handler)(void);
+
 -(id)initWithText:(NSString*) text;
 -(void) setText: (NSString*) text;
 -(SKLabelNode*) getLabel;

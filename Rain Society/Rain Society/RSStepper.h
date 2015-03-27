@@ -11,4 +11,6 @@
 @interface RSStepper : RSContainer
 
 -(void) setButtonColor:(UIColor*) color;
+-(void)setValueLabel:(int) value;
+-(int) getValueLabel;
 @end
