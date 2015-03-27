@@ -21,16 +21,15 @@ typedef enum tipos
 
 
 ///Nome do som, dado arbitrariamente pelo desenvolvedor
-@property NSString *nomeDoSom;
+@property (nonatomic,strong) NSString *nomeDoSom;
 
 ///Nome do arquivo de som
-@property NSString *nomeDoArquivo;
+@property (nonatomic,strong) NSString *nomeDoArquivo;
 
 ///Extensao do arquivo de som
-@property NSString *extensaoDoArquivo;
+@property (nonatomic,strong) NSString *extensaoDoArquivo;
 
-
-@property TipoDeSom tipo;
+@property (nonatomic) TipoDeSom tipo;
 
 
 

@@ -8,7 +8,7 @@
 
 #import "RSAudioPlayer.h"
 #import <AVFoundation/AVFoundation.h>
-#import "RSSound.m"
+#import "RSSound.h"
 
 @interface RSAudioPlayer()
 
@@ -18,8 +18,6 @@
 
 @implementation RSAudioPlayer
 
-@synthesize BGMPlayer;
-@synthesize SFXPlayer;
 
 ///Busca um som no SoundArray e o retorna
 - (RSSound*) encontraSom: (NSString*) nomeDoSom
