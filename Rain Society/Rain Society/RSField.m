@@ -11,14 +11,14 @@
 @implementation RSField
 
 
--(void)setWind:(int) velocity{
+-(void)setWindwithVelocity:(int) velocity{
     vector_float3 speed = {velocity,_ySpeed,0};
     _wind = [SKFieldNode velocityFieldWithVector:speed];
 }
 
 -(void) setRegion: (CGPoint) origin with:(int) dx and:(int) dy{
     _wind.position=origin;
-    [_wind.region initWithSize: CGSizeMake((CGFloat)dx, (CGFloat)dy)];
+    _wind.region = [_wind.region initWithSize: CGSizeMake((CGFloat)dx, (CGFloat)dy)];
     self.position=origin;
 }
 

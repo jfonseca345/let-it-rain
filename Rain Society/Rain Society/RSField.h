@@ -17,7 +17,7 @@
 @property int ySpeed;
 
 
--(void) setWind: (int) velocity;
+-(void) setWindwithVelocity:(int) velocity;
 -(void) setRegion: (CGPoint) origin with:(int) dx and:(int) dy;
 -(void) verifyPressure;
 
