@@ -35,6 +35,6 @@
 - (void) stopSFX: (BOOL) reset;
 
 ///Para os Sons de ambos os players, o booleano diz se o som deve resetar ou nao
-- (void) paraTodosSons: (BOOL) reset;
+- (void) stopSounds: (BOOL) reset;
 
 @end
