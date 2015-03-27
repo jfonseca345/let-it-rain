@@ -19,6 +19,7 @@
 -(void) setRegion: (CGPoint) origin with:(int) dx and:(int) dy{
     _wind.position=origin;
     [_wind.region initWithSize: CGSizeMake((CGFloat)dx, (CGFloat)dy)];
+    self.position=origin;
 }
 
 -(void) verifyPressure{
