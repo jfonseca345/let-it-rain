@@ -12,6 +12,7 @@
 
 @interface RSSound : NSObject
 
+///Se o som é BGM ou SFX
 typedef enum tipos
 {
     BGM,
@@ -27,6 +28,7 @@ typedef enum tipos
 
 ///Extensao do arquivo de som
 @property NSString *extensaoDoArquivo;
+
 
 @property TipoDeSom tipo;
 

@@ -21,7 +21,7 @@
 @synthesize BGMPlayer;
 @synthesize SFXPlayer;
 
-
+///Busca um som no SoundArray e o retorna
 - (RSSound*) encontraSom: (NSString*) nomeDoSom
 {
     RSSound *som;
@@ -35,6 +35,7 @@
     return som;
 }
 
+///Carrega um som no seu respectivo player
 - (AVAudioPlayer*) carregaSom: (NSString*) nomeDoSom
 {
     //Checamos se o som existe
@@ -62,6 +63,7 @@
     return nil;
 }
 
+///Encontra, carrega e toca um som com volume que vai de 0.0 ate 1.0
 - (void) tocaSom: (NSString*) nomeDoSom comVolume: (double) volume
 {
     AVAudioPlayer *player =[self carregaSom: nomeDoSom];
@@ -73,23 +75,35 @@
     }
 }
 
-- (void) paraBGM
+///Altera o volume de todos os sons entre 0.0 e 1.0
+- (void) setVolume: (int) volume{
+    self.BGMPlayer.volume = volume;
+    self.SFXPlayer.volume = volume;
+}
+
+
+///Para BGM, o booleano diz se o som deve resetar ou nao
+- (void) stopBGM: (BOOL) reset
 {
     [self.BGMPlayer stop];
+    if(reset == YES)
     self.BGMPlayer.currentTime=0;
 }
 
-- (void) paraSFX
+///Para e SFX, o booleano diz se o som deve resetar ou nao
+- (void) stopSFX: (BOOL) reset
 {
     
     [self.SFXPlayer stop];
+    if(reset == YES)
     self.SFXPlayer.currentTime=0;
 }
 
-- (void) paraTodosSons
+///Para os Sons de ambos os players, o booleano diz se o som deve resetar ou nao
+- (void) stopSounds: (BOOL) reset
 {
-    [self paraBGM];
-    [self paraSFX];
+    [self stopBGM: reset];
+    [self stopSFX: reset];
 }
 
 @end

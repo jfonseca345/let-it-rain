@@ -28,7 +28,13 @@
 ///Encontra, carrega e toca um som com volume que vai de 0.0 ate 1.0
 - (void) tocaSom: (NSString*) nomeDoSom comVolume: (double) volume;
 
-///Para os Sons de ambos os players
-- (void) paraTodosSons;
+///Para BGM, o booleano diz se o som deve resetar ou nao
+- (void) stopBGM: (BOOL) reset;
+
+///Para e SFX, o booleano diz se o som deve resetar ou nao
+- (void) stopSFX: (BOOL) reset;
+
+///Para os Sons de ambos os players, o booleano diz se o som deve resetar ou nao
+- (void) stopSounds: (BOOL) reset;
 
 @end
