@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self.view setBackgroundColor: [UIColor whiteColor]];
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
@@ -51,7 +51,7 @@
 
 - (BOOL)shouldAutorotate
 {
-    return YES;
+    return NO;
 }
 
 - (NSUInteger)supportedInterfaceOrientations

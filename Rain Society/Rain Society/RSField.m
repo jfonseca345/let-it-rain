@@ -11,18 +11,27 @@
 @implementation RSField
 
 
--(void)setWindwithVelocity:(int) velocity{
+-(void)setWindWithVelocity:(int) velocity{
+    NSArray *childrenOfSelf = [self children];
+    for (SKNode *node in childrenOfSelf){
+        [node removeFromParent];
+    }
+    _ySpeed=0;
+    [self verifyPressure];
     vector_float3 speed = {velocity,_ySpeed,0};
     _wind = [SKFieldNode velocityFieldWithVector:speed];
+    [_wind setEnabled:YES];
+    [self addChild:_wind];
+    
 }
 
--(void) setRegion: (CGPoint) origin with:(int) dx and:(int) dy{
+-(void) setRegion: (CGPoint) origin with:(CGFloat) dx and:(CGFloat) dy{
     _wind.position=origin;
-    _wind.region = [_wind.region initWithSize: CGSizeMake((CGFloat)dx, (CGFloat)dy)];
+    _wind.region = [[SKRegion alloc] initWithSize: CGSizeMake(500, 500)];
     self.position=origin;
 }
 
 -(void) verifyPressure{
-    if(_pressure<20) _ySpeed=_pressure/2;
+    if(_pressure<1) _ySpeed=(1-_pressure)*10;
 }
 @end

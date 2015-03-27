@@ -9,16 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
-@interface RSField : SKNode
+@interface RSField : SKSpriteNode
 
 @property int temperature;
-@property int pressure;
+@property float pressure;
 @property (nonatomic) SKFieldNode *wind;
 @property int ySpeed;
 
 
--(void) setWindwithVelocity:(int) velocity;
--(void) setRegion: (CGPoint) origin with:(int) dx and:(int) dy;
+-(void) setWindWithVelocity:(int) velocity;
+-(void) setRegion: (CGPoint) origin with:(CGFloat) dx and:(CGFloat) dy;
 -(void) verifyPressure;
 
 @end
