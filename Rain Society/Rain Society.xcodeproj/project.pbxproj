@@ -20,6 +20,7 @@
 		4F9502581AC1ABF700FC894A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F9502571AC1ABF700FC894A /* Images.xcassets */; };
 		4F95025B1AC1ABF700FC894A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9502591AC1ABF700FC894A /* LaunchScreen.xib */; };
 		4F9502671AC1ABF700FC894A /* Rain_SocietyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9502661AC1ABF700FC894A /* Rain_SocietyTests.m */; };
+		6F28C5391AC9C672002BECEE /* RSMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F28C5381AC9C672002BECEE /* RSMap.m */; };
 		6F6270C01AC43D3E0069698E /* RSField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6270BF1AC43D3E0069698E /* RSField.m */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,8 @@
 		4F9502601AC1ABF700FC894A /* Rain SocietyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rain SocietyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9502651AC1ABF700FC894A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F9502661AC1ABF700FC894A /* Rain_SocietyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rain_SocietyTests.m; sourceTree = "<group>"; };
+		6F28C5371AC9C672002BECEE /* RSMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMap.h; sourceTree = "<group>"; };
+		6F28C5381AC9C672002BECEE /* RSMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMap.m; sourceTree = "<group>"; };
 		6F6270BE1AC43D3E0069698E /* RSField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSField.h; sourceTree = "<group>"; };
 		6F6270BF1AC43D3E0069698E /* RSField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,14 +128,13 @@
 		4F9502441AC1ABF700FC894A /* Rain Society */ = {
 			isa = PBXGroup;
 			children = (
+				6F28C5361AC9C639002BECEE /* Controle */,
 				4F704C631AC49D9800F2B40D /* Interface */,
 				18A929ED1AC44C6100358842 /* Sons */,
 				4F9502491AC1ABF700FC894A /* AppDelegate.h */,
 				4F95024A1AC1ABF700FC894A /* AppDelegate.m */,
 				4F95024C1AC1ABF700FC894A /* GameScene.h */,
 				4F95024D1AC1ABF700FC894A /* GameScene.m */,
-				6F6270BE1AC43D3E0069698E /* RSField.h */,
-				6F6270BF1AC43D3E0069698E /* RSField.m */,
 				4F95024F1AC1ABF700FC894A /* GameScene.sks */,
 				4F9502511AC1ABF700FC894A /* GameViewController.h */,
 				4F9502521AC1ABF700FC894A /* GameViewController.m */,
@@ -168,6 +170,17 @@
 				4F9502651AC1ABF700FC894A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6F28C5361AC9C639002BECEE /* Controle */ = {
+			isa = PBXGroup;
+			children = (
+				6F6270BE1AC43D3E0069698E /* RSField.h */,
+				6F6270BF1AC43D3E0069698E /* RSField.m */,
+				6F28C5371AC9C672002BECEE /* RSMap.h */,
+				6F28C5381AC9C672002BECEE /* RSMap.m */,
+			);
+			name = Controle;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +293,7 @@
 				4F704C5D1AC49CF300F2B40D /* RSButton.m in Sources */,
 				4F704C5F1AC49CF300F2B40D /* RSStepper.m in Sources */,
 				184093511AC4346500C5AEB1 /* RSAudioPlayer.m in Sources */,
+				6F28C5391AC9C672002BECEE /* RSMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

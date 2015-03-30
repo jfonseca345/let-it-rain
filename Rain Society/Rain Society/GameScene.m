@@ -7,7 +7,7 @@
 //
 
 #import "GameScene.h"
-#import "RSField.h"
+#import "RSMap.h"
 
 
 @interface GameScene () <SKPhysicsContactDelegate> {
@@ -18,8 +18,9 @@
     SKSpriteNode* t3;
     SKSpriteNode* t4;
     SKLabelNode* _scoreLabelNode;
-
+    
 }
+@property (nonatomic) RSMap* Mappon;
 @end
 
 
@@ -59,6 +60,9 @@ static const uint32_t obstaculoCategory = 1 << 0;
     //myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
     //                               CGRectGetMidY(self.frame));
     //Leticia brincando com a cena
+    self.Mappon = [[RSMap alloc] initWithWidth:CGRectGetWidth(self.frame) Height:CGRectGetHeight(self.frame)];
+    [self.Mappon createFields:3 and:2];
+    
     [self setBackgroundColor:[UIColor redColor]];
     SKSpriteNode *cidade = [SKSpriteNode spriteNodeWithImageNamed:@"cidade"];
     cidade.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"cidade"] size:cidade.frame.size];
@@ -106,6 +110,12 @@ static const uint32_t obstaculoCategory = 1 << 0;
     
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
+        RSField * fieldon = [self.Mappon touchedField:location];
+        NSLog(@"%@",fieldon);
+        NSLog(@"loccation:%f,%f", location.x,location.y);
+        SKSpriteNode *spriton = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:fieldon.region.size];
+        [spriton setPosition:fieldon.region.origin];
+        [self addChild:spriton];
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
         sprite.zPosition=100;
         sprite.xScale = 1;

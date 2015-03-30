@@ -15,7 +15,10 @@
 @property int pressure;
 @property int wind;
 @property NSMutableArray *sprites;
+@property CGRect region;
 
--(id) initWithProperties : (int) temperature and: (int) pressure and: (int) wind;
+
+-(id) initWithTemperature : (int) temperature Pressure: (int) pressure Wind: (int) wind;
 //-(void) addSprite:(RSSprite*) sprite;
+//-(RSField*) touchedField : (CGPoint) touch;
 @end

@@ -10,7 +10,7 @@
 
 @implementation RSField
 
--(id) initWithProperties : (int) temperature and: (int) pressure and: (int) wind{
+-(id) initWithTemperature : (int) temperature Pressure: (int) pressure Wind: (int) wind{
     self = [super init];
     self.temperature=temperature;
     self.pressure=pressure;
@@ -22,5 +22,11 @@
 //-(void) addSprite:(RSSprite*) sprite{
  //   [self.sprites addObject:sprite];
 //}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"temperature,pressure, wind,region: (%d, %d, %d, (%f,%f,%f,%f))", self.temperature, self.pressure, self.wind, self.region.origin.x, self.region.origin.y, self.region.size.width,self.region.size.height];
+}
+
 
 @end
