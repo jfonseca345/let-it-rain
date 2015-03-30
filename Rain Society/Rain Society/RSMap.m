@@ -30,7 +30,6 @@
         for(int j=0; j<y; j++){
             RSField * temporaryField = [[RSField alloc] initWithTemperature:0 Pressure:0 Wind:0];
             temporaryField.region = CGRectMake((CGFloat)i*self.width/x, (CGFloat)j*self.height/y, self.width/x, self.height/y);
-            NSLog(@"%f, %f, %f, %f",(CGFloat)i*self.width/x, (CGFloat)j*self.height/y, self.width/x, self.height/y );
             [temporary addObject:temporaryField];
         }
         [self.fields addObject:temporary];
