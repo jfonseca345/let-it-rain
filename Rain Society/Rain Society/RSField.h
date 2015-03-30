@@ -12,13 +12,10 @@
 @interface RSField : SKSpriteNode
 
 @property int temperature;
-@property float pressure;
-@property (nonatomic) SKFieldNode *wind;
-@property int ySpeed;
+@property int pressure;
+@property int wind;
+@property NSMutableArray *sprites;
 
-
--(void) setWindWithVelocity:(int) velocity;
--(void) setRegion: (CGPoint) origin with:(CGFloat) dx and:(CGFloat) dy;
--(void) verifyPressure;
-
+-(id) initWithProperties : (int) temperature and: (int) pressure and: (int) wind;
+-(void) addSprite:(RSSprite*) sprite;
 @end
