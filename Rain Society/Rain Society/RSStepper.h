@@ -10,6 +10,7 @@
 
 @interface RSStepper : RSContainer
 
+-(id)initWithProperties:(int) initialValue andMinValue:(int)minValue andMaxValue:(int)maxValue andAmount:(int)amount;
 -(void) setButtonColor:(UIColor*) color;
 -(void)setValueLabel:(int) value;
 -(int) getValueLabel;

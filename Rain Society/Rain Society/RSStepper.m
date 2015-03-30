@@ -12,18 +12,24 @@
 @interface RSStepper()
 
 @property (nonatomic, setter=setValueLabel:) int value;
+@property (nonatomic) int minValue;
+@property (nonatomic) int maxValue;
+@property (nonatomic) int amount;
 
 @end
 @implementation RSStepper
 
--(id)init{
+-(id)initWithProperties:(int) initialValue andMinValue:(int)minValue andMaxValue:(int)maxValue andAmount:(int)amount{
     
     self = [super init];
     
     SKLabelNode* textScore;
     RSButton* buttonPlus;
     RSButton* buttonMinus;
-    self.value=0;
+    self.value=initialValue;
+    self.minValue = minValue;
+    self.maxValue = maxValue;
+    self.amount = amount;
     
     buttonMinus = [[RSButton alloc] initWithText:@" - "];
     buttonPlus = [[RSButton alloc] initWithText:@" + "];
@@ -39,11 +45,18 @@
     [textScore setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     
     [buttonMinus setHandler:^{
-        self.value--;
+        
+        self.value-=self.amount;
+        if (self.value<self.minValue){
+            self.value = self.minValue;
+        }
         NSLog(@"Ue");
     }];
     [buttonPlus setHandler:^{
-        self.value++;
+        self.value+=self.amount;
+        if (self.value>self.maxValue){
+            self.value = self.maxValue;
+        }
         NSLog(@"Uai");
     }];
     
