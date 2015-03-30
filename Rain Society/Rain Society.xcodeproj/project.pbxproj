@@ -21,10 +21,6 @@
 		4F95025B1AC1ABF700FC894A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9502591AC1ABF700FC894A /* LaunchScreen.xib */; };
 		4F9502671AC1ABF700FC894A /* Rain_SocietyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9502661AC1ABF700FC894A /* Rain_SocietyTests.m */; };
 		6F6270C01AC43D3E0069698E /* RSField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6270BF1AC43D3E0069698E /* RSField.m */; };
-		6FD302901AC5A2D700CDFB29 /* city.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD3028C1AC5A2D700CDFB29 /* city.png */; };
-		6FD302911AC5A2D700CDFB29 /* Cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD3028D1AC5A2D700CDFB29 /* Cloud.png */; };
-		6FD302921AC5A2D700CDFB29 /* lake.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD3028E1AC5A2D700CDFB29 /* lake.png */; };
-		6FD302931AC5A2D700CDFB29 /* Mulher_Montanha.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD3028F1AC5A2D700CDFB29 /* Mulher_Montanha.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,10 +61,6 @@
 		4F9502661AC1ABF700FC894A /* Rain_SocietyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rain_SocietyTests.m; sourceTree = "<group>"; };
 		6F6270BE1AC43D3E0069698E /* RSField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSField.h; sourceTree = "<group>"; };
 		6F6270BF1AC43D3E0069698E /* RSField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSField.m; sourceTree = "<group>"; };
-		6FD3028C1AC5A2D700CDFB29 /* city.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = city.png; path = ../../../city.png; sourceTree = "<group>"; };
-		6FD3028D1AC5A2D700CDFB29 /* Cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cloud.png; path = ../../../Cloud.png; sourceTree = "<group>"; };
-		6FD3028E1AC5A2D700CDFB29 /* lake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lake.png; path = ../../../lake.png; sourceTree = "<group>"; };
-		6FD3028F1AC5A2D700CDFB29 /* Mulher_Montanha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Mulher_Montanha.png; path = ../../../Mulher_Montanha.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,10 +147,6 @@
 		4F9502451AC1ABF700FC894A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6FD3028C1AC5A2D700CDFB29 /* city.png */,
-				6FD3028D1AC5A2D700CDFB29 /* Cloud.png */,
-				6FD3028E1AC5A2D700CDFB29 /* lake.png */,
-				6FD3028F1AC5A2D700CDFB29 /* Mulher_Montanha.png */,
 				4F9502461AC1ABF700FC894A /* Info.plist */,
 				4F9502471AC1ABF700FC894A /* main.m */,
 			);
@@ -262,11 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FD302931AC5A2D700CDFB29 /* Mulher_Montanha.png in Resources */,
 				4F95025B1AC1ABF700FC894A /* LaunchScreen.xib in Resources */,
-				6FD302911AC5A2D700CDFB29 /* Cloud.png in Resources */,
-				6FD302921AC5A2D700CDFB29 /* lake.png in Resources */,
-				6FD302901AC5A2D700CDFB29 /* city.png in Resources */,
 				4F9502581AC1ABF700FC894A /* Images.xcassets in Resources */,
 				4F9502501AC1ABF700FC894A /* GameScene.sks in Resources */,
 				4F9502561AC1ABF700FC894A /* Main.storyboard in Resources */,

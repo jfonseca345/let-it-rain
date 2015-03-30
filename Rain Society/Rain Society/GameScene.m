@@ -60,18 +60,18 @@ static const uint32_t obstaculoCategory = 1 << 0;
     //                               CGRectGetMidY(self.frame));
     //Leticia brincando com a cena
     [self setBackgroundColor:[UIColor redColor]];
-    SKSpriteNode *cidade = [SKSpriteNode spriteNodeWithImageNamed:@"city"];
-    cidade.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"city"] size:cidade.frame.size];
-    cidade.position = CGPointMake( CGRectGetMaxX( self.frame )-cidade.frame.size.width-2, CGRectGetMinY(self.frame)+cidade.frame.size.height );
-    cidade.zPosition = 50;
+    SKSpriteNode *cidade = [SKSpriteNode spriteNodeWithImageNamed:@"cidade"];
+    cidade.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"cidade"] size:cidade.frame.size];
+    cidade.position = CGPointMake( CGRectGetMaxX( self.frame )-cidade.frame.size.width/2, CGRectGetMinY(self.frame)+cidade.frame.size.height-29); // valores definidos por meio de testes
+    cidade.zPosition = 50;// posicona cidade à frente
     cidade.physicsBody.categoryBitMask=obstaculoCategory;
     cidade.physicsBody.dynamic=NO;
     [self addChild:cidade];
     _scoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"MarkerFelt-Wide"];
     _scoreLabelNode.position = CGPointMake( CGRectGetMidX( self.frame ), self.frame.size.height / 2 );
-    _scoreLabelNode.text = [NSString stringWithFormat:@"%d", 69696969];
+    _scoreLabelNode.text = [NSString stringWithFormat:@"Try your luck!"];
     [self addChild:_scoreLabelNode];
-    _nuvem = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud"];
+    _nuvem = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
     [self addChild:_nuvem];
 
     /*
@@ -106,12 +106,13 @@ static const uint32_t obstaculoCategory = 1 << 0;
     
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Cloud"];
+        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
         sprite.zPosition=100;
         sprite.xScale = 1;
         sprite.yScale = 1;
         sprite.position = location;
-        sprite.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"Cloud"] size:sprite.frame.size];
+        sprite.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"nuvem"] size:sprite.frame.size];
+        sprite.physicsBody.allowsRotation=NO;
         sprite.physicsBody.dynamic=YES;
         sprite.physicsBody.allowsRotation=NO;
         SKAction *action = [SKAction rotateByAngle:M_PI duration:1];

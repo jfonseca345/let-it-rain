@@ -17,5 +17,5 @@
 @property NSMutableArray *sprites;
 
 -(id) initWithProperties : (int) temperature and: (int) pressure and: (int) wind;
--(void) addSprite:(RSSprite*) sprite;
+//-(void) addSprite:(RSSprite*) sprite;
 @end

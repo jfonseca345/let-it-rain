@@ -19,8 +19,8 @@
     return self;
 }
 
--(void) addSprite:(RSSprite*) sprite{
-    [self.sprites addObject:sprite];
-}
+//-(void) addSprite:(RSSprite*) sprite{
+ //   [self.sprites addObject:sprite];
+//}
 
 @end
