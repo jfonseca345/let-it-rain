@@ -40,11 +40,10 @@
 
 
 -(RSField*) touchedField : (CGPoint) touch{
-    float heightIndex = touch.y/self.height;
-    float widthIndex = touch.x/self.width;
-    NSLog(@"%@", self.fields[(int)widthIndex][(int)heightIndex]);
+    int heightIndex = touch.y/(self.height/self.numberOfFieldsAxisY);
+    int widthIndex = touch.x/(self.width/self.numberOfFieldsAxisX);
     
-    return (RSField*)self.fields[(int)widthIndex][(int)heightIndex];
+    return (RSField*)self.fields[widthIndex][heightIndex];
 }
 
 @end
