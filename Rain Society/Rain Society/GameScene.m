@@ -114,6 +114,7 @@ static const uint32_t obstaculoCategory = 1 << 0;
         NSLog(@"%@",fieldon);
         NSLog(@"loccation:%f,%f", location.x,location.y);
         SKSpriteNode *spriton = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:fieldon.region.size];
+        [spriton setAnchorPoint:CGPointMake(0,0)];
         [spriton setPosition:fieldon.region.origin];
         [self addChild:spriton];
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
