@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		184093511AC4346500C5AEB1 /* RSAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 184093501AC4346500C5AEB1 /* RSAudioPlayer.m */; };
-		18D832431ACAE7FA00FE0B67 /* RSSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D832421ACAE7FA00FE0B67 /* RSSprite.m */; };
 		18D832461ACAE83C00FE0B67 /* RainParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 18D832451ACAE83C00FE0B67 /* RainParticle.sks */; };
+		18DCAF2B1ACAE9C10080EA92 /* RSSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DCAF2A1ACAE9C10080EA92 /* RSSprite.m */; };
 		4F704C5D1AC49CF300F2B40D /* RSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F704C581AC49CF300F2B40D /* RSButton.m */; };
 		4F704C5F1AC49CF300F2B40D /* RSStepper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F704C5C1AC49CF300F2B40D /* RSStepper.m */; };
 		4F704C621AC49D5E00F2B40D /* RSContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F704C611AC49D5E00F2B40D /* RSContainer.m */; };
@@ -40,9 +40,9 @@
 		1840934F1AC4346500C5AEB1 /* RSAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAudioPlayer.h; sourceTree = "<group>"; };
 		184093501AC4346500C5AEB1 /* RSAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAudioPlayer.m; sourceTree = "<group>"; };
 		184093521AC43B8E00C5AEB1 /* RSSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSound.h; sourceTree = "<group>"; };
-		18D832421ACAE7FA00FE0B67 /* RSSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RSSprite.m; path = ../../../RSSprite.m; sourceTree = "<group>"; };
 		18D832441ACAE82900FE0B67 /* RSSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSprite.h; sourceTree = "<group>"; };
 		18D832451ACAE83C00FE0B67 /* RainParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = RainParticle.sks; sourceTree = "<group>"; };
+		18DCAF2A1ACAE9C10080EA92 /* RSSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSprite.m; sourceTree = "<group>"; };
 		4F704C571AC49CF300F2B40D /* RSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSButton.h; sourceTree = "<group>"; };
 		4F704C581AC49CF300F2B40D /* RSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSButton.m; sourceTree = "<group>"; };
 		4F704C5B1AC49CF300F2B40D /* RSStepper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSStepper.h; sourceTree = "<group>"; };
@@ -102,7 +102,7 @@
 		4F704C631AC49D9800F2B40D /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				18D832421ACAE7FA00FE0B67 /* RSSprite.m */,
+				18DCAF2A1ACAE9C10080EA92 /* RSSprite.m */,
 				18D832441ACAE82900FE0B67 /* RSSprite.h */,
 				4F704C601AC49D5E00F2B40D /* RSContainer.h */,
 				4F704C611AC49D5E00F2B40D /* RSContainer.m */,
@@ -301,7 +301,7 @@
 				4F9502481AC1ABF700FC894A /* main.m in Sources */,
 				4F704C5D1AC49CF300F2B40D /* RSButton.m in Sources */,
 				4F704C5F1AC49CF300F2B40D /* RSStepper.m in Sources */,
-				18D832431ACAE7FA00FE0B67 /* RSSprite.m in Sources */,
+				18DCAF2B1ACAE9C10080EA92 /* RSSprite.m in Sources */,
 				184093511AC4346500C5AEB1 /* RSAudioPlayer.m in Sources */,
 				6F28C5391AC9C672002BECEE /* RSMap.m in Sources */,
 			);
