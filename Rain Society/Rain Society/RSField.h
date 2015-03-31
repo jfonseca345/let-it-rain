@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
+#import "RSContainer.h"
+#import "RSButton.h"
+#import "RSStepper.h"
 
 @interface RSField : SKSpriteNode
 
@@ -17,9 +20,12 @@
 @property NSMutableArray *sprites;
 @property CGRect region;
 @property bool lake;
+@property (nonatomic) RSContainer *popup;
+
 
 
 -(id) initWithTemperature : (int) temperature Pressure: (int) pressure Wind: (int) wind;
 //-(void) addSprite:(RSSprite*) sprite;
 //-(RSField*) touchedField : (CGPoint) touch;
+-(void) showPopup:(SKNode*)gameScene;
 @end
