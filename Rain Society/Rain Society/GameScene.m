@@ -50,12 +50,6 @@
     /* Setup your scene here */
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Verdana"];
     
-    //myLabel.text = @"Hello, World!";
-    //myLabel.fontSize = 65;
-    //myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-    //                               CGRectGetMidY(self.frame));
-    //Leticia brincando com a cena
-    
     self.Mappon = [[RSMap alloc] initWithWidth:CGRectGetWidth(self.frame) Height:CGRectGetHeight(self.frame)];
     [self.Mappon createFields:3 and:2];
     
@@ -97,30 +91,6 @@
     _scoreLabelNode.text = [NSString stringWithFormat:@"Try your luck!"];
     [self addChild:_scoreLabelNode];
 
-    /*
-    RSField *T0= [[RSField alloc] init];
-    [T0 setWindWithVelocity:0];
-    T0.wind.exclusive=NO;
-    [self addChild:T0];
-    
-    RSField *T1= [[RSField alloc] initWithColor:[UIColor redColor] size:(CGSizeMake(500, 500))];
-    [self addChild:T1];
-    [T1 setRegion: CGPointMake(500,500) with:500 and:500];
-    [T1 setPressure:1];
-    [T1 setWindWithVelocity:1];
-    T1.wind.exclusive=YES;
-    
-    RSField *T2= [[RSField alloc] initWithColor:[UIColor blueColor] size:(CGSizeMake(500, 500))];
-    [self addChild:T2];
-    [T2 setRegion: CGPointMake(600,500) with:500 and:500];
-    [T2 setPressure:0.6];
-    //[T2 setWindWithVelocity:-3];
-    T2.wind.exclusive=YES;
-    */
-
-
-    //fim da sandbox da Leticia
-
     [self addChild:myLabel];
 }
 
@@ -133,12 +103,6 @@
         RSField * fieldon = [self.Mappon touchedField:location];
         [fieldon showPopup:self];
         
-        //NSLog(@"%@",fieldon);
-        //NSLog(@"loccation:%f,%f", location.x,location.y);
-        //SKSpriteNode *spriton = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:fieldon.region.size];
-        //[spriton setAnchorPoint:CGPointMake(0,0)];
-        //[spriton setPosition:fieldon.region.origin];
-        //[self addChild:spriton];
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
         sprite.zPosition=100;
         sprite.xScale = 1;
@@ -148,12 +112,6 @@
         sprite.physicsBody.allowsRotation=NO;
         sprite.physicsBody.dynamic=NO;
         sprite.physicsBody.allowsRotation=NO;
-        //SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-        
-       // [sprite runAction:[SKAction repeatActionForever:action]];
-        
-       // [self addChild:sprite];
-        //fieldon.temperature++;
         if(fieldon.lake==YES && fieldon.temperature>=5){
             [self addChild:sprite];
             SKAction *rise = [SKAction moveToY:600 duration: 3];
