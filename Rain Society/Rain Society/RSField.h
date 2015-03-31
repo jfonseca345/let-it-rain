@@ -16,6 +16,7 @@
 @property int wind;
 @property NSMutableArray *sprites;
 @property CGRect region;
+@property bool lake;
 
 
 -(id) initWithTemperature : (int) temperature Pressure: (int) pressure Wind: (int) wind;
