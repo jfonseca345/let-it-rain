@@ -39,8 +39,8 @@
 
 
 -(RSField*) touchedField : (CGPoint) touch{
-    int heightIndex = touch.y/(self.height/self.numberOfFieldsAxisY);
-    int widthIndex = touch.x/(self.width/self.numberOfFieldsAxisX);
+    int heightIndex = (touch.y*self.numberOfFieldsAxisY)/(self.height);
+    int widthIndex = (touch.x*self.numberOfFieldsAxisX)/(self.width);
     
     return (RSField*)self.fields[widthIndex][heightIndex];
 }
