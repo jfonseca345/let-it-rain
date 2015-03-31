@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
-#import "GameScene.h"
 
 
 @interface RSSprite : SKSpriteNode
