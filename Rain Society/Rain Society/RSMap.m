@@ -77,13 +77,13 @@
                                 [self.fields[i][j+1] addSprite:cloud];
                                 [self.fields[i][j+1] setChanged:YES];
                                 cloud.fieldY++;
-                                }
+                            }
                             
                         }
                         else if(cloud.pressure>field.pressure){
                             [field.sprites removeObject:sprite];
                             
-                            [cloud moveSprite:CGPointMake(cloud.position.x, cloud.position.y-(self.height/(2*self.numberOfFieldsAxisY))) ];
+                            [cloud moveSprite:CGPointMake(cloud.position.x, cloud.position.y-(self.height/(2*self.numberOfFieldsAxisY)))];
                             
                             if (j>0){
                                 [self.fields[i][j-1] addSprite:cloud];
@@ -98,7 +98,7 @@
                         NSLog(@"UpdateLago");
                         ELake* lake = (ELake*) sprite;
                         
-                        if(field.temperature>3){
+                        if(field.temperature>=3){
                             lake.spawnCloud=YES;
                         }
                         else{

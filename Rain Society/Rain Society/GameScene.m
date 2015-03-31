@@ -33,6 +33,8 @@
 
 @implementation GameScene
 
+
+
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Verdana"];
@@ -49,27 +51,27 @@
     //Configura sprite cidade
     ECity *city = [[ECity alloc] initWithPosition:CGPointMake(0, 0)];
     // valores definidos por meio de testes
-    [city setSizes:0.8 andLocation:CGPointMake( CGRectGetMaxX( self.frame )-city.frame.size.width/2 + 25, CGRectGetMinY(self.frame)+city.frame.size.height-55)];
+    [city setSizes:0.8 andLocation:CGPointMake( CGRectGetMaxX( self.frame )-city.frame.size.width/2 + 25, CGRectGetMinY(self.frame)+city.frame.size.height-40)];
     [self addChild:city];
     [self.Mappon addSprite:city inField:2 and:0];
     
     //Configura sprite Montanha
     EMountain *mountain = [[EMountain alloc] initWithPosition:CGPointMake(0,0)];
-    mountain.position = CGPointMake( (CGRectGetMaxX( self.frame )/2 + 29), CGRectGetMinY(self.frame)+mountain.frame.size.height-80);
+    mountain.position = CGPointMake( (CGRectGetMaxX( self.frame )/2 + 35), CGRectGetMinY(self.frame)+mountain.frame.size.height-60);
      // valores definidos por meio de testes
     [self addChild:mountain];
     [self.Mappon addSprite:mountain inField:1 and:0];
     
     //Configura sprite Lago
     ELake *lake = [[ELake alloc] initWithPosition:CGPointMake(0, 0)];
-    [lake setSizes:0.5 andLocation:CGPointMake( CGRectGetMinX( self.frame )+lake.frame.size.width/2-40, CGRectGetMinY(self.frame)+lake.frame.size.height+20)]; // valores definidos por meio de testes
+    [lake setSizes:0.5 andLocation:CGPointMake( CGRectGetMinX( self.frame )+lake.frame.size.width/2-40, CGRectGetMinY(self.frame)+lake.frame.size.height+30)]; // valores definidos por meio de testes
     [self addChild:lake];
     [self.Mappon addSprite:lake inField:0 and:0];
     
     //Configura sprite Floresta
     EForest *forest = [[EForest alloc ] initWithPosition:CGPointMake(0,0)];
     // valores definidos por meio de testes
-    [forest setSizes:1.5 andLocation:CGPointMake( CGRectGetMinX( self.frame )+forest.frame.size.width-20, CGRectGetMinY(self.frame)+forest.frame.size.height+70)];
+    [forest setSizes:1.5 andLocation:CGPointMake( CGRectGetMinX( self.frame )+forest.frame.size.width-20, CGRectGetMinY(self.frame)+forest.frame.size.height+110)];
     [self addChild:forest];
     
     [self.Mappon addSprite:forest inField:0 and:0];

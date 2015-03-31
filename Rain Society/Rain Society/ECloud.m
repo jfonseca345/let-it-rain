@@ -19,6 +19,7 @@
     self = [super initWithImageNamed:@"nuvem"];
     self.zPosition = 2;
     [self.physicsBody setDynamic:NO];
+    self.xScale=self.yScale=0.7;
     [self setPosition:position];
     [self setUserInteractionEnabled:YES];
     return self;
