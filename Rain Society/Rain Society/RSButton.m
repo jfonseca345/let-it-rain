@@ -14,35 +14,22 @@
 
 @implementation RSButton
 
--(id)init{
-    SKLabelNode* buttonText;
-    self = [super init];
-    buttonText = [[SKLabelNode alloc ]init ];
-    [buttonText setFontName:@"Verdana"];
-    [buttonText setText:@" "];
-    [buttonText setName:@"label"];
-    //[buttonText setFontSize:100];
-    [self setSize:CGSizeMake(buttonText.frame.size.width*1.75,buttonText.frame.size.height*1.75)];
-    [buttonText setPosition:CGPointMake(0, 0)];
-    [self addChild:buttonText];
-    
-    return self;
-}
 
 -(id)initWithText:(NSString *)text{
     SKLabelNode* buttonText;
-    RSButton* button = [[RSButton alloc] init];
-    buttonText = [[SKLabelNode alloc ]init ];
-    [buttonText setFontName:@"Verdana"];
-    [button setName:text];
+    self = [super init];
+    buttonText = [[SKLabelNode alloc ]initWithFontNamed:@"Verdana" ];
+    [self setName:text];
     [buttonText setText:text];
     [buttonText setName:@"label"];
     //[buttonText setFontSize:100];
-    [button setSize:CGSizeMake(buttonText.frame.size.width*1.75,buttonText.frame.size.height*1.75)];
-    [buttonText setPosition:CGPointMake(CGRectGetMidX(button.frame), CGRectGetMidY(button.frame))];
-    [button addChild:buttonText];
+    [self setSize:CGSizeMake(buttonText.frame.size.width*1.75,buttonText.frame.size.height*1.75)];
+    [buttonText setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     
-    return button;
+    [self setSize:buttonText.frame.size];
+   [self addChild:buttonText];
+    
+    return self;
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

@@ -8,6 +8,12 @@
 
 #import "GameScene.h"
 #import "RSMap.h"
+#import "ECity.h"
+#import "ELake.h"
+#import "EMountain.h"
+#import "EForest.h"
+#import "ECloud.h"
+
 
 
 @interface GameScene () <SKPhysicsContactDelegate> {
@@ -19,6 +25,7 @@
     
 }
 @property (nonatomic) RSMap* Mappon;
+@property (nonatomic,strong) SKSpriteNode* backgroundImage;
 @end
 
 
@@ -29,6 +36,10 @@
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Verdana"];
+    self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+    [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
+    [self.backgroundImage setSize:self.frame.size];
+    [self addChild:self.backgroundImage];
     
     self.Mappon = [[RSMap alloc] initWithWidth:CGRectGetWidth(self.frame) Height:CGRectGetHeight(self.frame)];
     [self.Mappon createFields:3 and:2];
@@ -36,35 +47,32 @@
     [self setBackgroundColor:[UIColor greenColor]];
     
     //Configura sprite cidade
-    SKSpriteNode *cidade = [SKSpriteNode spriteNodeWithImageNamed:@"cidade"];
-    cidade.position = CGPointMake( CGRectGetMaxX( self.frame )-cidade.frame.size.width/2 + 25, CGRectGetMinY(self.frame)+cidade.frame.size.height-55); // valores definidos por meio de testes
-    cidade.zPosition = 1;// posicona cidade à frente
-    cidade.xScale=cidade.yScale=0.8;
-    [self addChild:cidade];
+    ECity *city = [[ECity alloc] initWithPosition:CGPointMake(0, 0)];
+    // valores definidos por meio de testes
+    [city setSizes:0.8 andLocation:CGPointMake( CGRectGetMaxX( self.frame )-city.frame.size.width/2 + 25, CGRectGetMinY(self.frame)+city.frame.size.height-55)];
+    [self addChild:city];
+    [self.Mappon addSprite:city inField:2 and:0];
     
     //Configura sprite Montanha
-    SKSpriteNode *montanha = [SKSpriteNode spriteNodeWithImageNamed:@"montanha"];
-    montanha.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"montanha"] size:cidade.frame.size];
-    montanha.position = CGPointMake( (CGRectGetMaxX( self.frame )/2 + 29), CGRectGetMinY(self.frame)+montanha.frame.size.height-80); // valores definidos por meio de testes
-    montanha.zPosition = 1;
-    montanha.physicsBody.dynamic=NO;
-    montanha.xScale=montanha.yScale=1;
-    [self addChild:montanha];
+    EMountain *mountain = [[EMountain alloc] initWithPosition:CGPointMake(0,0)];
+    mountain.position = CGPointMake( (CGRectGetMaxX( self.frame )/2 + 29), CGRectGetMinY(self.frame)+mountain.frame.size.height-80);
+     // valores definidos por meio de testes
+    [self addChild:mountain];
+    [self.Mappon addSprite:mountain inField:1 and:0];
     
     //Configura sprite Lago
-    SKSpriteNode *lago = [SKSpriteNode spriteNodeWithImageNamed:@"lago"];
-    lago.position = CGPointMake( CGRectGetMinX( self.frame )+lago.frame.size.width/2-40, CGRectGetMinY(self.frame)+lago.frame.size.height+20); // valores definidos por meio de testes
-    lago.zPosition = 1;// posicona cidade à frente
-    lago.xScale=lago.yScale=0.5;
-    [self addChild:lago];
+    ELake *lake = [[ELake alloc] initWithPosition:CGPointMake(0, 0)];
+    [lake setSizes:0.5 andLocation:CGPointMake( CGRectGetMinX( self.frame )+lake.frame.size.width/2-40, CGRectGetMinY(self.frame)+lake.frame.size.height+20)]; // valores definidos por meio de testes
+    [self addChild:lake];
+    [self.Mappon addSprite:lake inField:0 and:0];
     
     //Configura sprite Floresta
-    SKSpriteNode *floresta = [SKSpriteNode spriteNodeWithImageNamed:@"floresta"];
-    floresta.position = CGPointMake( CGRectGetMinX( self.frame )+floresta.frame.size.width-20, CGRectGetMinY(self.frame)+floresta.frame.size.height+70); // valores definidos por meio de testes
-    floresta.zPosition = 0;// posicona cidade à frente
-    floresta.xScale=floresta.yScale=1.5;
-    [self addChild:floresta];
-    [_Mappon.fields[0][0] setLake:YES];
+    EForest *forest = [[EForest alloc ] initWithPosition:CGPointMake(0,0)];
+    // valores definidos por meio de testes
+    [forest setSizes:1.5 andLocation:CGPointMake( CGRectGetMinX( self.frame )+forest.frame.size.width-20, CGRectGetMinY(self.frame)+forest.frame.size.height+70)];
+    [self addChild:forest];
+    
+    [self.Mappon addSprite:forest inField:0 and:0];
     
     _scoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"MarkerFelt-Wide"];
     _scoreLabelNode.position = CGPointMake( CGRectGetMidX( self.frame ), self.frame.size.height / 2 );
@@ -80,29 +88,31 @@
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         SKNode* touchedNode = [self nodeAtPoint:location];
-        RSField * fieldon = [self.Mappon touchedField:location];
-        [fieldon showPopup:self];
-        
-        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
-        sprite.zPosition=100;
-        sprite.xScale = 1;
-        sprite.yScale = 1;
-        sprite.position = location;
-        sprite.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"nuvem"] size:sprite.frame.size];
-        sprite.physicsBody.allowsRotation=NO;
-        sprite.physicsBody.dynamic=NO;
-        sprite.physicsBody.allowsRotation=NO;
-        if(fieldon.lake==YES && fieldon.temperature>=5){
-            [self addChild:sprite];
-            SKAction *rise = [SKAction moveToY:600 duration: 3];
-            [sprite runAction:rise];
+        if (touchedNode == self.backgroundImage){
+            RSField * fieldon = [self.Mappon touchedField:location];
+            [fieldon showPopup:self];
+            
+            /*SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
+            sprite.zPosition=100;
+            sprite.xScale = 1;
+            sprite.yScale = 1;
+            sprite.position = location;
+            sprite.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"nuvem"] size:sprite.frame.size];
+            sprite.physicsBody.allowsRotation=NO;
+            sprite.physicsBody.dynamic=NO;
+            sprite.physicsBody.allowsRotation=NO;*/
+            //if(fieldon.lake==YES && fieldon.temperature>=5){
+           //     [self addChild:sprite];
+            //    SKAction *rise = [SKAction moveToY:600 duration: 3];
+             //   [sprite runAction:rise];
+            //}
         }
     }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
-
+    [self.Mappon updateFields];
 }
 
 @end

@@ -15,6 +15,7 @@
     //Inicializacao da sprite
     self = [super initWithImageNamed:name];
     self.spriteName = name;
+    self.name = name;
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.isItEmiting = NO;
     return self;

@@ -23,6 +23,11 @@
 		4F9502581AC1ABF700FC894A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F9502571AC1ABF700FC894A /* Images.xcassets */; };
 		4F95025B1AC1ABF700FC894A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9502591AC1ABF700FC894A /* LaunchScreen.xib */; };
 		4F9502671AC1ABF700FC894A /* Rain_SocietyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9502661AC1ABF700FC894A /* Rain_SocietyTests.m */; };
+		4FBA949D1ACAFCC100F19668 /* ECloud.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBA949C1ACAFCC100F19668 /* ECloud.m */; };
+		4FBA94A01ACAFCD300F19668 /* EMountain.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBA949F1ACAFCD300F19668 /* EMountain.m */; };
+		4FBA94A31ACAFCE700F19668 /* ELake.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBA94A21ACAFCE700F19668 /* ELake.m */; };
+		4FBA94A61ACAFCF900F19668 /* ECity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBA94A51ACAFCF900F19668 /* ECity.m */; };
+		4FBA94A91ACAFD0900F19668 /* EForest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBA94A81ACAFD0900F19668 /* EForest.m */; };
 		6F28C5391AC9C672002BECEE /* RSMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F28C5381AC9C672002BECEE /* RSMap.m */; };
 		6F6270C01AC43D3E0069698E /* RSField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6270BF1AC43D3E0069698E /* RSField.m */; };
 /* End PBXBuildFile section */
@@ -67,6 +72,16 @@
 		4F9502601AC1ABF700FC894A /* Rain SocietyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rain SocietyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F9502651AC1ABF700FC894A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F9502661AC1ABF700FC894A /* Rain_SocietyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Rain_SocietyTests.m; sourceTree = "<group>"; };
+		4FBA949B1ACAFCC100F19668 /* ECloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECloud.h; sourceTree = "<group>"; };
+		4FBA949C1ACAFCC100F19668 /* ECloud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECloud.m; sourceTree = "<group>"; };
+		4FBA949E1ACAFCD300F19668 /* EMountain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EMountain.h; sourceTree = "<group>"; };
+		4FBA949F1ACAFCD300F19668 /* EMountain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EMountain.m; sourceTree = "<group>"; };
+		4FBA94A11ACAFCE700F19668 /* ELake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELake.h; sourceTree = "<group>"; };
+		4FBA94A21ACAFCE700F19668 /* ELake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELake.m; sourceTree = "<group>"; };
+		4FBA94A41ACAFCF900F19668 /* ECity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECity.h; sourceTree = "<group>"; };
+		4FBA94A51ACAFCF900F19668 /* ECity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECity.m; sourceTree = "<group>"; };
+		4FBA94A71ACAFD0900F19668 /* EForest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EForest.h; sourceTree = "<group>"; };
+		4FBA94A81ACAFD0900F19668 /* EForest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EForest.m; sourceTree = "<group>"; };
 		6F28C5371AC9C672002BECEE /* RSMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMap.h; sourceTree = "<group>"; };
 		6F28C5381AC9C672002BECEE /* RSMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMap.m; sourceTree = "<group>"; };
 		6F6270BE1AC43D3E0069698E /* RSField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSField.h; sourceTree = "<group>"; };
@@ -137,6 +152,7 @@
 		4F9502441AC1ABF700FC894A /* Rain Society */ = {
 			isa = PBXGroup;
 			children = (
+				4FBA94941ACAFC4800F19668 /* Entidades */,
 				6F28C5361AC9C639002BECEE /* Controle */,
 				4F704C631AC49D9800F2B40D /* Interface */,
 				18A929ED1AC44C6100358842 /* Sons */,
@@ -181,6 +197,23 @@
 				4F9502651AC1ABF700FC894A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4FBA94941ACAFC4800F19668 /* Entidades */ = {
+			isa = PBXGroup;
+			children = (
+				4FBA949B1ACAFCC100F19668 /* ECloud.h */,
+				4FBA949C1ACAFCC100F19668 /* ECloud.m */,
+				4FBA949E1ACAFCD300F19668 /* EMountain.h */,
+				4FBA949F1ACAFCD300F19668 /* EMountain.m */,
+				4FBA94A11ACAFCE700F19668 /* ELake.h */,
+				4FBA94A21ACAFCE700F19668 /* ELake.m */,
+				4FBA94A41ACAFCF900F19668 /* ECity.h */,
+				4FBA94A51ACAFCF900F19668 /* ECity.m */,
+				4FBA94A71ACAFD0900F19668 /* EForest.h */,
+				4FBA94A81ACAFD0900F19668 /* EForest.m */,
+			);
+			name = Entidades;
 			sourceTree = "<group>";
 		};
 		6F28C5361AC9C639002BECEE /* Controle */ = {
@@ -297,15 +330,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FBA94A31ACAFCE700F19668 /* ELake.m in Sources */,
 				4F9502531AC1ABF700FC894A /* GameViewController.m in Sources */,
 				4F95024B1AC1ABF700FC894A /* AppDelegate.m in Sources */,
 				4F704C621AC49D5E00F2B40D /* RSContainer.m in Sources */,
 				4F95024E1AC1ABF700FC894A /* GameScene.m in Sources */,
 				6F6270C01AC43D3E0069698E /* RSField.m in Sources */,
 				4F9502481AC1ABF700FC894A /* main.m in Sources */,
+				4FBA94A01ACAFCD300F19668 /* EMountain.m in Sources */,
 				4F704C5D1AC49CF300F2B40D /* RSButton.m in Sources */,
+				4FBA949D1ACAFCC100F19668 /* ECloud.m in Sources */,
 				4F704C5F1AC49CF300F2B40D /* RSStepper.m in Sources */,
 				18DCAF2B1ACAE9C10080EA92 /* RSSprite.m in Sources */,
+				4FBA94A91ACAFD0900F19668 /* EForest.m in Sources */,
+				4FBA94A61ACAFCF900F19668 /* ECity.m in Sources */,
 				184093511AC4346500C5AEB1 /* RSAudioPlayer.m in Sources */,
 				6F28C5391AC9C672002BECEE /* RSMap.m in Sources */,
 			);
