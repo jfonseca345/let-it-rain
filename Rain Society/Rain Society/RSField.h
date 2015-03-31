@@ -19,6 +19,7 @@
 @property int wind;
 @property NSMutableArray *sprites;
 @property CGRect region;
+@property bool lake;
 @property (nonatomic) RSContainer *popup;
 
 
