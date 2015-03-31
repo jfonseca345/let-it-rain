@@ -129,13 +129,16 @@
     
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
+        SKNode* touchedNode = [self nodeAtPoint:location];
         RSField * fieldon = [self.Mappon touchedField:location];
+        [fieldon showPopup:self];
+        
         //NSLog(@"%@",fieldon);
         //NSLog(@"loccation:%f,%f", location.x,location.y);
-        SKSpriteNode *spriton = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:fieldon.region.size];
-        [spriton setAnchorPoint:CGPointMake(0,0)];
-        [spriton setPosition:fieldon.region.origin];
-        [self addChild:spriton];
+        //SKSpriteNode *spriton = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:fieldon.region.size];
+        //[spriton setAnchorPoint:CGPointMake(0,0)];
+        //[spriton setPosition:fieldon.region.origin];
+        //[self addChild:spriton];
         SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
         sprite.zPosition=100;
         sprite.xScale = 1;
@@ -150,8 +153,8 @@
        // [sprite runAction:[SKAction repeatActionForever:action]];
         
        // [self addChild:sprite];
-        fieldon.temperature++;
-        if(fieldon.lake==YES && fieldon.temperature>5){
+        //fieldon.temperature++;
+        if(fieldon.lake==YES && fieldon.temperature>=5){
             [self addChild:sprite];
             SKAction *rise = [SKAction moveToY:600 duration: 3];
             [sprite runAction:rise];

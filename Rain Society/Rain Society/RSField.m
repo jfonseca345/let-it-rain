@@ -29,6 +29,7 @@
     self.popup = [[RSContainer alloc] initWithColor:[UIColor blueColor]];
     [self.popup setName:@"PopupMain"];
     self.popup.attach = self;
+    self.popup.zPosition = 200;
     
     SKLabelNode* temperatureLabel = [[SKLabelNode alloc] initWithFontNamed:@"Verdana"];
     [temperatureLabel setName:@"temperatureLabel"];
@@ -41,13 +42,13 @@
     
     
     //RSStepper* pressureStepper = [[RSStepper alloc]initWithProperties:self.pressure andMinValue:0 andMaxValue:50 andAmount:25];
-    RSStepper* temperatureStepper = [[RSStepper alloc] initWithProperties:self.temperature andMinValue:0 andMaxValue:50 andAmount:25];
+    RSStepper* temperatureStepper = [[RSStepper alloc] initWithProperties:self.temperature andMinValue:-5 andMaxValue:5 andAmount:1];
     temperatureStepper.position = CGPointMake(20+(temperatureLabel.frame.size.width)/2, temperatureLabel.frame.size.height*1.5-10);
     [temperatureStepper setName:@"temperature"];
     [temperatureStepper setColor:[UIColor redColor]];
     [temperatureStepper setButtonColor:[UIColor blueColor]];
     
-    RSStepper* windStepper = [[RSStepper alloc]initWithProperties:self.wind andMinValue:-3 andMaxValue:3 andAmount:1];
+    RSStepper* windStepper = [[RSStepper alloc]initWithProperties:self.wind andMinValue:-10 andMaxValue:10 andAmount:1];
     windStepper.position = CGPointMake(20+(temperatureLabel.frame.size.width)/2, temperatureLabel.frame.size.height*0.25-20);
     [windStepper setName:@"wind"];
     [windStepper setColor:[UIColor redColor]];
