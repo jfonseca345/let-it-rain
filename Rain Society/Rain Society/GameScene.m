@@ -11,8 +11,6 @@
 
 
 @interface GameScene () <SKPhysicsContactDelegate> {
-    SKSpriteNode* _nuvem;
-    SKSpriteNode* _montanha;
     SKSpriteNode* t1;
     SKSpriteNode* t2;
     SKSpriteNode* t3;
@@ -60,23 +58,47 @@ static const uint32_t obstaculoCategory = 1 << 0;
     //myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
     //                               CGRectGetMidY(self.frame));
     //Leticia brincando com a cena
+    
     self.Mappon = [[RSMap alloc] initWithWidth:CGRectGetWidth(self.frame) Height:CGRectGetHeight(self.frame)];
     [self.Mappon createFields:3 and:2];
     
-    [self setBackgroundColor:[UIColor redColor]];
+    [self setBackgroundColor:[UIColor greenColor]];
+    
+    //Configura sprite cidade
     SKSpriteNode *cidade = [SKSpriteNode spriteNodeWithImageNamed:@"cidade"];
-    cidade.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"cidade"] size:cidade.frame.size];
-    cidade.position = CGPointMake( CGRectGetMaxX( self.frame )-cidade.frame.size.width/2, CGRectGetMinY(self.frame)+cidade.frame.size.height-29); // valores definidos por meio de testes
-    cidade.zPosition = 50;// posicona cidade à frente
-    cidade.physicsBody.categoryBitMask=obstaculoCategory;
-    cidade.physicsBody.dynamic=NO;
+    cidade.position = CGPointMake( CGRectGetMaxX( self.frame )-cidade.frame.size.width/2 + 25, CGRectGetMinY(self.frame)+cidade.frame.size.height-55); // valores definidos por meio de testes
+    cidade.zPosition = 1;// posicona cidade à frente
+    cidade.xScale=cidade.yScale=0.8;
     [self addChild:cidade];
+    
+    //Configura sprite Montanha
+    SKSpriteNode *montanha = [SKSpriteNode spriteNodeWithImageNamed:@"montanha"];
+    montanha.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"montanha"] size:cidade.frame.size];
+    montanha.position = CGPointMake( (CGRectGetMaxX( self.frame )/2 + 29), CGRectGetMinY(self.frame)+montanha.frame.size.height-80); // valores definidos por meio de testes
+    montanha.zPosition = 1;
+    montanha.physicsBody.dynamic=NO;
+    montanha.xScale=montanha.yScale=1;
+    [self addChild:montanha];
+    
+    //Configura sprite Lago
+    SKSpriteNode *lago = [SKSpriteNode spriteNodeWithImageNamed:@"lago"];
+    lago.position = CGPointMake( CGRectGetMinX( self.frame )+lago.frame.size.width/2-40, CGRectGetMinY(self.frame)+lago.frame.size.height+20); // valores definidos por meio de testes
+    lago.zPosition = 1;// posicona cidade à frente
+    lago.xScale=lago.yScale=0.5;
+    [self addChild:lago];
+    
+    //Configura sprite Floresta
+    SKSpriteNode *floresta = [SKSpriteNode spriteNodeWithImageNamed:@"floresta"];
+    floresta.position = CGPointMake( CGRectGetMinX( self.frame )+floresta.frame.size.width-20, CGRectGetMinY(self.frame)+floresta.frame.size.height+70); // valores definidos por meio de testes
+    floresta.zPosition = 0;// posicona cidade à frente
+    floresta.xScale=floresta.yScale=1.5;
+    [self addChild:floresta];
+    [_Mappon.fields[0][0] setLake:YES];
+    
     _scoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"MarkerFelt-Wide"];
     _scoreLabelNode.position = CGPointMake( CGRectGetMidX( self.frame ), self.frame.size.height / 2 );
     _scoreLabelNode.text = [NSString stringWithFormat:@"Try your luck!"];
     [self addChild:_scoreLabelNode];
-    _nuvem = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
-    [self addChild:_nuvem];
 
     /*
     RSField *T0= [[RSField alloc] init];
@@ -111,8 +133,8 @@ static const uint32_t obstaculoCategory = 1 << 0;
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         RSField * fieldon = [self.Mappon touchedField:location];
-        NSLog(@"%@",fieldon);
-        NSLog(@"loccation:%f,%f", location.x,location.y);
+        //NSLog(@"%@",fieldon);
+        //NSLog(@"loccation:%f,%f", location.x,location.y);
         SKSpriteNode *spriton = [SKSpriteNode spriteNodeWithColor:[UIColor blueColor] size:fieldon.region.size];
         [spriton setAnchorPoint:CGPointMake(0,0)];
         [spriton setPosition:fieldon.region.origin];
@@ -124,13 +146,19 @@ static const uint32_t obstaculoCategory = 1 << 0;
         sprite.position = location;
         sprite.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"nuvem"] size:sprite.frame.size];
         sprite.physicsBody.allowsRotation=NO;
-        sprite.physicsBody.dynamic=YES;
+        sprite.physicsBody.dynamic=NO;
         sprite.physicsBody.allowsRotation=NO;
-        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
+        //SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
         
-        [sprite runAction:[SKAction repeatActionForever:action]];
+       // [sprite runAction:[SKAction repeatActionForever:action]];
         
-        [self addChild:sprite];
+       // [self addChild:sprite];
+        fieldon.temperature++;
+        if(fieldon.lake==YES && fieldon.temperature>5){
+            [self addChild:sprite];
+            SKAction *rise = [SKAction moveToY:600 duration: 3];
+            [sprite runAction:rise];
+        }
     }
 }
 
