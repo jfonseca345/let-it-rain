@@ -25,9 +25,6 @@
 
 
 @implementation GameScene
-static const uint32_t nuvemCategory = 1 << 0;
-static const uint32_t campoCategory = 1 << 1;
-static const uint32_t obstaculoCategory = 1 << 0;
 
 
 
