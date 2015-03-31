@@ -7,7 +7,6 @@
 //
 
 #import "RSSprite.h"
-#import "GameScene.h"
 
 @implementation RSSprite
 
