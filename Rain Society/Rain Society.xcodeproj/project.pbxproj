@@ -30,7 +30,6 @@
 		4FBA94A91ACAFD0900F19668 /* EForest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBA94A81ACAFD0900F19668 /* EForest.m */; };
 		6F28C5391AC9C672002BECEE /* RSMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F28C5381AC9C672002BECEE /* RSMap.m */; };
 		6F6270C01AC43D3E0069698E /* RSField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6270BF1AC43D3E0069698E /* RSField.m */; };
-		6FCE1E431ACC69CA005400AE /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FCE1E421ACC69CA005400AE /* Launch Screen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,7 +86,6 @@
 		6F28C5381AC9C672002BECEE /* RSMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMap.m; sourceTree = "<group>"; };
 		6F6270BE1AC43D3E0069698E /* RSField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSField.h; sourceTree = "<group>"; };
 		6F6270BF1AC43D3E0069698E /* RSField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSField.m; sourceTree = "<group>"; };
-		6FCE1E421ACC69CA005400AE /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +161,6 @@
 				4F95024C1AC1ABF700FC894A /* GameScene.h */,
 				4F95024D1AC1ABF700FC894A /* GameScene.m */,
 				4F95024F1AC1ABF700FC894A /* GameScene.sks */,
-				6FCE1E421ACC69CA005400AE /* Launch Screen.xib */,
 				4F9502511AC1ABF700FC894A /* GameViewController.h */,
 				4F9502521AC1ABF700FC894A /* GameViewController.m */,
 				4F9502541AC1ABF700FC894A /* Main.storyboard */,
@@ -315,7 +312,6 @@
 				4F95025B1AC1ABF700FC894A /* LaunchScreen.xib in Resources */,
 				4F9502581AC1ABF700FC894A /* Images.xcassets in Resources */,
 				4F9502501AC1ABF700FC894A /* GameScene.sks in Resources */,
-				6FCE1E431ACC69CA005400AE /* Launch Screen.xib in Resources */,
 				4F9502561AC1ABF700FC894A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
