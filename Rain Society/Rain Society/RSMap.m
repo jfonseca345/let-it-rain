@@ -67,6 +67,37 @@
                         NSLog(@"UpdateNuvem");
                         ECloud* cloud = (ECloud*) sprite;
                         
+                        //Rotinas de vento
+                        if(field.wind > 0)
+                        {
+                            [field.sprites removeObject:sprite];
+                            
+                            [cloud moveSprite:CGPointMake(cloud.position.x+(self.width/self.numberOfFieldsAxisX), cloud.position.y) ];
+                            
+                            
+                            if (i+1<self.numberOfFieldsAxisX){
+                                [self.fields[i+1][j] addSprite:cloud];
+                                [self.fields[i+1][j] setChanged:YES];
+                                cloud.fieldX++;
+                            }
+                            
+                            
+                        }else
+                        if(field.wind < 0)
+                        {
+                            [field.sprites removeObject:sprite];
+                            
+                            [cloud moveSprite:CGPointMake(cloud.position.x-(self.width/self.numberOfFieldsAxisX), cloud.position.y) ];
+                            
+                            
+                            if (i-1>self.numberOfFieldsAxisX){
+                                [self.fields[i-1][j] addSprite:cloud];
+                                [self.fields[i-1][j] setChanged:YES];
+                                cloud.fieldX--;
+                            }
+                        }
+                        
+                        
                         if(cloud.pressure<field.pressure){
                             
                             [field.sprites removeObject:sprite];

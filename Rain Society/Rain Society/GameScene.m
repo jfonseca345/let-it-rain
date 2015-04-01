@@ -38,7 +38,7 @@
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Verdana"];
-    self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+    self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background2"];
     [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     [self.backgroundImage setSize:self.frame.size];
     [self addChild:self.backgroundImage];
@@ -76,12 +76,12 @@
     
     [self.Mappon addSprite:forest inField:0 and:0];
     
-    _scoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"MarkerFelt-Wide"];
+   /* _scoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"MarkerFelt-Wide"];
     _scoreLabelNode.position = CGPointMake( CGRectGetMidX( self.frame ), self.frame.size.height / 2 );
     _scoreLabelNode.text = [NSString stringWithFormat:@"Try your luck!"];
     [self addChild:_scoreLabelNode];
 
-    [self addChild:myLabel];
+    [self addChild:myLabel];*/
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
