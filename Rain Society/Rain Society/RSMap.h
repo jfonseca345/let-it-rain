@@ -22,6 +22,9 @@
 //Fields in Map
 @property (nonatomic,strong) NSMutableArray *fields;
 
+//Action queue
+@property (nonatomic,strong) NSMutableArray *actionQueue;
+
 //Init with width and height
 -(id) initWithWidth: (int) width Height: (int) height;
 //Create x*y Fields

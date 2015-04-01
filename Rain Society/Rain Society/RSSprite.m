@@ -33,7 +33,8 @@
 {
     //Move ate um certo ponto
     SKAction *movement = [SKAction moveTo:point duration:1];
-    [self runAction: movement];
+    [self runAction:movement];
+    
     
 }
 
