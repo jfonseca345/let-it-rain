@@ -45,11 +45,15 @@
 
     
     // Create and configure the scene.
-    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
-    
+    //GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    //scene.scaleMode = SKSceneScaleModeAspectFill;
+    GameScene *welcome = (GameScene*)[Welcome sceneWithSize:(skView.frame.size)];
+    welcome.scaleMode = SKSceneScaleModeAspectFill;
     // Present the scene.
-    [skView presentScene:scene];
+    //[skView presentScene:scene];
+    [skView presentScene:welcome];
+ ///   skView pre
+    
 }
 
 - (BOOL)shouldAutorotate

@@ -28,11 +28,10 @@
 @end
 
 
-
-
 @implementation GameScene
 
 -(void) startGame{
+    SKView * skView = (SKView *)self.view;
     self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background2"];
     [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     [self.backgroundImage setSize:CGSizeMake(self.size.width,self.size.height-140)];
@@ -80,6 +79,14 @@
     }];
     [self addChild:restartButton];
     
+    RSButton* menuButton = [[RSButton alloc] initWithText:@"R"];
+    [menuButton setZPosition:200];
+    [menuButton setPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetHeight(self.frame)-150)];
+    [menuButton setHandler:^{
+        
+    }];
+    [self addChild:menuButton];
+
     
 }
 -(void) restartGame{
@@ -102,21 +109,6 @@
         if (!([touchedNode.name isEqualToString:@"lago"])&&!([touchedNode.name isEqualToString:@"nuvem"])){
             RSField * fieldon = [self.Mappon touchedField:location];
             [fieldon showPopup:self];
-            
-            /*SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
-            sprite.zPosition=100;
-            sprite.xScale = 1;
-            sprite.yScale = 1;
-            sprite.position = location;
-            sprite.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"nuvem"] size:sprite.frame.size];
-            sprite.physicsBody.allowsRotation=NO;
-            sprite.physicsBody.dynamic=NO;
-            sprite.physicsBody.allowsRotation=NO;*/
-            //if(fieldon.lake==YES && fieldon.temperature>=5){
-           //     [self addChild:sprite];
-            //    SKAction *rise = [SKAction moveToY:600 duration: 3];
-             //   [sprite runAction:rise];
-            //}
         }
     }
 }

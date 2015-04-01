@@ -7,7 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
-
+#import <UIKit/UIKit.h>
 @interface Welcome : SKScene
-
+@property (nonatomic,strong) SKSpriteNode *backgroundImage;
 @end
