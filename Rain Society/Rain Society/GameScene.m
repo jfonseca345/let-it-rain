@@ -33,7 +33,7 @@
     self.Mappon = [[RSMap alloc] initWithWidth:CGRectGetWidth(self.frame) Height:CGRectGetHeight(self.frame)];
     [self.Mappon createFields:3 and:2];
     
-    [self setBackgroundColor:[UIColor greenColor]];
+
     
     //Configura sprite cidade
     SKSpriteNode *cidade = [SKSpriteNode spriteNodeWithImageNamed:@"cidade"];
