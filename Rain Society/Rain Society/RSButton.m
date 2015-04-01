@@ -18,15 +18,17 @@
 -(id)initWithText:(NSString *)text{
     SKLabelNode* buttonText;
     self = [super init];
-    buttonText = [[SKLabelNode alloc ]initWithFontNamed:@"Verdana" ];
+    buttonText = [SKLabelNode labelNodeWithText:text];
     [self setName:text];
-    [buttonText setText:text];
+    [buttonText setFontName:@"Verdana"];
     [buttonText setName:@"label"];
-    //[buttonText setFontSize:100];
-    [self setSize:CGSizeMake(buttonText.frame.size.width*1.75,buttonText.frame.size.height*1.75)];
-    [buttonText setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     
-    [self setSize:buttonText.frame.size];
+    //[buttonText setFontSize:100];
+    
+    [self setSize:CGSizeMake(buttonText.frame.size.width*2, buttonText.frame.size.height*2)];
+    [buttonText setPosition:CGPointMake(0, 0)];
+    //[self setSize:buttonText.frame.size];
+    [self setTexture:[SKTexture textureWithImageNamed:@"background"]];
    [self addChild:buttonText];
     
     return self;
@@ -40,7 +42,7 @@
     SKLabelNode *label = [self getLabel];
     [label setText:text];
     [self setName:text];
-    [self setSize:CGSizeMake(label.frame.size.width*1.5,label.frame.size.height*1.5)];
+    [self setSize:CGSizeMake(label.frame.size.width*2,label.frame.size.height*2)];
     
 }
 

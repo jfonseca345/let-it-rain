@@ -33,9 +33,9 @@
 @implementation GameScene
 
 -(void) startGame{
-    self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+    self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background2"];
     [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
-    [self.backgroundImage setSize:self.frame.size];
+    [self.backgroundImage setSize:CGSizeMake(self.size.width,self.size.height-140)];
     [self addChild:self.backgroundImage];
     
     self.Mappon = [[RSMap alloc] initWithWidth:CGRectGetWidth(self.frame) Height:CGRectGetHeight(self.frame)];
@@ -72,8 +72,8 @@
     [self.Mappon addSprite:forest inField:0 and:0];
     
     //Configura um botão para reset
-    RSButton* restartButton = [[RSButton alloc] initWithText:@"Restart"];
-    [restartButton setPosition:CGPointMake(200,200)];
+    RSButton* restartButton = [[RSButton alloc] initWithText:@"R"];
+    [restartButton setPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetHeight(self.frame)-150)];
     [restartButton setHandler:^{
         [self restartGame];
     }];

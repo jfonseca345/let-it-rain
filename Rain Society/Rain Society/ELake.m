@@ -24,22 +24,21 @@
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     if (self.spawnCloud){
         NSLog(@"Nuvem");
-        RSButton* spawnCloudButton = [[RSButton alloc] initWithText:@" Criar Nuvem! "];
+        RSButton* spawnCloudButton = [[RSButton alloc] initWithText:@"Nuvem!"];
         [spawnCloudButton setColor:[UIColor redColor]];
-        [spawnCloudButton setPosition:CGPointMake(100, 200)];
+        [spawnCloudButton setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame)+50)];
         [spawnCloudButton setColor:[UIColor redColor]];
         [spawnCloudButton setHandler:^{
         NSArray* childrenScene = [self.parent children];
         RSButton* popup;
         
         for (SKNode* node in childrenScene){
-            if ([node.name isEqualToString:@" Criar Nuvem! "]){
+            if ([node.name isEqualToString:@"Nuvem!"]){
                 RSMap* mapFather = (RSMap*)self.mapParent;
                 popup=(RSButton*)node;
-                ECloud* cloud = [[ECloud alloc] initWithPosition:self.frame.origin];
+                ECloud* cloud = [[ECloud alloc] initWithPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
                 cloud.pressure = 50;
-                 [cloud fadeOut];
-                [cloud moveSprite:CGPointMake(cloud.position.x+60, mapFather.height/(mapFather.numberOfFieldsAxisY))];
+                [cloud moveSprite:CGPointMake(cloud.position.x, mapFather.height/(mapFather.numberOfFieldsAxisY))];
                 [cloud fadeIn];
                 [mapFather addSprite:cloud inField:0 and:0];
                 [self.parent addChild:cloud];

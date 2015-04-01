@@ -58,7 +58,9 @@
 -(void)updateFields{
     for (int i=0;i<self.numberOfFieldsAxisX;i++){
         for (int j=0;j<self.numberOfFieldsAxisY;j++){
+            //Actual field
             RSField* field = self.fields[i][j];
+            //if variable of field has changed
             if (field.changed){
                 NSLog(@"Update(%d,%d)",i,j);
                 for(RSSprite* sprite in field.sprites){
@@ -138,7 +140,6 @@
                     }
                     
                 }
-                field.changed=NO;
             }
         }
     }
