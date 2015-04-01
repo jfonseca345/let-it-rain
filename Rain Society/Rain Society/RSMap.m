@@ -141,7 +141,11 @@
                         
                         if (field.temperature<-2) {
                             [cloud emitParticleNamed:@"RainParticle"];
-                            
+                            SKLabelNode *victoryLabel = [SKLabelNode labelNodeWithText:@"Sucesso!"];
+                            victoryLabel.fontName=@"Chalkduster";
+                            victoryLabel.fontSize=100;
+                            victoryLabel.position=CGPointMake(CGRectGetMidX(self.scene.frame),CGRectGetMidY(self.scene.frame));
+                            [self.scene addChild:victoryLabel];
                         }
                         else{
                             [cloud stopEmiting];

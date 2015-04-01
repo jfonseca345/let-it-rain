@@ -21,6 +21,7 @@
 @property (nonatomic) int numberOfFieldsAxisY;
 //Fields in Map
 @property (nonatomic,strong) NSMutableArray *fields;
+@property (nonatomic) SKNode *scene;
 
 //Action queue
 @property (nonatomic,strong) NSMutableArray *actionQueue;

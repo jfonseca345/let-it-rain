@@ -29,6 +29,7 @@
 		4FBA94A61ACAFCF900F19668 /* ECity.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBA94A51ACAFCF900F19668 /* ECity.m */; };
 		4FBA94A91ACAFD0900F19668 /* EForest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBA94A81ACAFD0900F19668 /* EForest.m */; };
 		6F28C5391AC9C672002BECEE /* RSMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F28C5381AC9C672002BECEE /* RSMap.m */; };
+		6F3AE2951ACC7E270044F1F8 /* Welcome.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F3AE2941ACC7E270044F1F8 /* Welcome.m */; };
 		6F6270C01AC43D3E0069698E /* RSField.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6270BF1AC43D3E0069698E /* RSField.m */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,8 @@
 		4FBA94A81ACAFD0900F19668 /* EForest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EForest.m; sourceTree = "<group>"; };
 		6F28C5371AC9C672002BECEE /* RSMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSMap.h; sourceTree = "<group>"; };
 		6F28C5381AC9C672002BECEE /* RSMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSMap.m; sourceTree = "<group>"; };
+		6F3AE2931ACC7E270044F1F8 /* Welcome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Welcome.h; sourceTree = "<group>"; };
+		6F3AE2941ACC7E270044F1F8 /* Welcome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Welcome.m; sourceTree = "<group>"; };
 		6F6270BE1AC43D3E0069698E /* RSField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSField.h; sourceTree = "<group>"; };
 		6F6270BF1AC43D3E0069698E /* RSField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,6 +162,8 @@
 				4F9502491AC1ABF700FC894A /* AppDelegate.h */,
 				4F95024A1AC1ABF700FC894A /* AppDelegate.m */,
 				4F95024C1AC1ABF700FC894A /* GameScene.h */,
+				6F3AE2931ACC7E270044F1F8 /* Welcome.h */,
+				6F3AE2941ACC7E270044F1F8 /* Welcome.m */,
 				4F95024D1AC1ABF700FC894A /* GameScene.m */,
 				4F95024F1AC1ABF700FC894A /* GameScene.sks */,
 				4F9502511AC1ABF700FC894A /* GameViewController.h */,
@@ -341,6 +346,7 @@
 				4F704C5D1AC49CF300F2B40D /* RSButton.m in Sources */,
 				4FBA949D1ACAFCC100F19668 /* ECloud.m in Sources */,
 				4F704C5F1AC49CF300F2B40D /* RSStepper.m in Sources */,
+				6F3AE2951ACC7E270044F1F8 /* Welcome.m in Sources */,
 				18DCAF2B1ACAE9C10080EA92 /* RSSprite.m in Sources */,
 				4FBA94A91ACAFD0900F19668 /* EForest.m in Sources */,
 				4FBA94A61ACAFCF900F19668 /* ECity.m in Sources */,
