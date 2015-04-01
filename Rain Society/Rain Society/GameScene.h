@@ -10,4 +10,6 @@
 
 @interface GameScene : SKScene
 
+-(void)startGame;
+-(void)restartGame;
 @end

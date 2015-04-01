@@ -10,8 +10,12 @@
 
 @interface RSStepper : RSContainer
 
+//Init stepper with properties initial Value, min and max Value possible and amount to sum every step
 -(id)initWithProperties:(int) initialValue andMinValue:(int)minValue andMaxValue:(int)maxValue andAmount:(int)amount;
+//Change the buttons color
 -(void) setButtonColor:(UIColor*) color;
+//Set Value of Stepper
 -(void)setValueLabel:(int) value;
+//Get the Value of Label
 -(int) getValueLabel;
 @end

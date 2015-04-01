@@ -14,35 +14,24 @@
 
 @implementation RSButton
 
--(id)init{
-    SKLabelNode* buttonText;
-    self = [super init];
-    buttonText = [[SKLabelNode alloc ]init ];
-    [buttonText setFontName:@"Verdana"];
-    [buttonText setText:@" "];
-    [buttonText setName:@"label"];
-    //[buttonText setFontSize:100];
-    [self setSize:CGSizeMake(buttonText.frame.size.width*1.75,buttonText.frame.size.height*1.75)];
-    [buttonText setPosition:CGPointMake(0, 0)];
-    [self addChild:buttonText];
-    
-    return self;
-}
 
 -(id)initWithText:(NSString *)text{
     SKLabelNode* buttonText;
-    RSButton* button = [[RSButton alloc] init];
-    buttonText = [[SKLabelNode alloc ]init ];
+    self = [super init];
+    buttonText = [SKLabelNode labelNodeWithText:text];
+    [self setName:text];
     [buttonText setFontName:@"Verdana"];
-    [button setName:text];
-    [buttonText setText:text];
     [buttonText setName:@"label"];
-    //[buttonText setFontSize:100];
-    [button setSize:CGSizeMake(buttonText.frame.size.width*1.75,buttonText.frame.size.height*1.75)];
-    [buttonText setPosition:CGPointMake(CGRectGetMidX(button.frame), CGRectGetMidY(button.frame))];
-    [button addChild:buttonText];
     
-    return button;
+    //[buttonText setFontSize:100];
+    
+    [self setSize:CGSizeMake(buttonText.frame.size.width*2, buttonText.frame.size.height*2)];
+    [buttonText setPosition:CGPointMake(0, 0)];
+    //[self setSize:buttonText.frame.size];
+    [self setTexture:[SKTexture textureWithImageNamed:@"background"]];
+   [self addChild:buttonText];
+    
+    return self;
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -53,7 +42,7 @@
     SKLabelNode *label = [self getLabel];
     [label setText:text];
     [self setName:text];
-    [self setSize:CGSizeMake(label.frame.size.width*1.5,label.frame.size.height*1.5)];
+    [self setSize:CGSizeMake(label.frame.size.width*2,label.frame.size.height*2)];
     
 }
 

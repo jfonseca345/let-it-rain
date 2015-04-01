@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 
-
 @interface RSSprite : SKSpriteNode
+
+//Helper properties to acess map and field where Sprite is located
+@property (nonatomic) int fieldX;
+@property (nonatomic) int fieldY;
+@property (nonatomic, strong) id mapParent;
 
 //Nome da Imagem do Sprite
 @property (nonatomic, strong) NSString* spriteName;

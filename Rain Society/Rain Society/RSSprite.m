@@ -15,6 +15,7 @@
     //Inicializacao da sprite
     self = [super initWithImageNamed:name];
     self.spriteName = name;
+    self.name = name;
     self.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.frame.size];
     self.isItEmiting = NO;
     return self;
@@ -32,7 +33,8 @@
 {
     //Move ate um certo ponto
     SKAction *movement = [SKAction moveTo:point duration:1];
-    [self runAction: movement];
+    [self runAction:movement];
+    
     
 }
 

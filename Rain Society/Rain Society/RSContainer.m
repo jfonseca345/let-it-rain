@@ -12,17 +12,15 @@
 
 -(id)initWithColor:(UIColor*)color{
     
-    RSContainer* container = [[RSContainer alloc] init];
-    [container setUserInteractionEnabled:true];
-    [container setColor:color];
-    
-    return container;
+    self = [super init];
+    [self setColor:color];
+    return self;
 }
 
 -(id)init{
     self = [super init];
-    [self setUserInteractionEnabled:true];
-    
+    [self setUserInteractionEnabled:YES];
+    [self setSize:CGSizeMake(1, 1)];
     return self;
 }
 @end

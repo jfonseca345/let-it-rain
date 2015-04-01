@@ -10,7 +10,9 @@
 
 @interface RSContainer : SKSpriteNode
 
+//Attached object to container
 @property (nonatomic) id attach;
+//Create a container with color
 -(id) initWithColor: (UIColor*) color;
 
 @end

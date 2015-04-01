@@ -8,6 +8,7 @@
 
 #import "RSField.h"
 
+
 @implementation RSField
 
 -(id) initWithTemperature : (int) temperature Pressure: (int) pressure Wind: (int) wind{
@@ -16,12 +17,14 @@
     self.pressure=pressure;
     self.wind=wind;
     self.sprites = [[NSMutableArray alloc] initWithArray:@[]];
+    self.changed = NO;
     return self;
 }
 
-//-(void) addSprite:(RSSprite*) sprite{
- //   [self.sprites addObject:sprite];
-//}
+-(void) addSprite:(RSSprite*) sprite{
+    [self.sprites addObject:sprite];
+}
+
 -(void)showPopup: (SKNode*)gameScene{
     if ([gameScene childNodeWithName:@"PopupMain"]!=nil)
         return;
@@ -80,7 +83,9 @@
                 stepper=(RSStepper*)node;
                 ((RSField*)popup.attach).temperature = [stepper getValueLabel];
             }
+            
         }
+        ((RSField*)popup.attach).changed=YES;
         [popup removeFromParent];
     }];
     

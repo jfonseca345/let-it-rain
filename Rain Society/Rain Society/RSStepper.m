@@ -38,7 +38,7 @@
     [textScore setName:@"value"];
     [textScore setText:[NSString stringWithFormat:@"%d", self.value]];
     
-    [self setSize:CGSizeMake(buttonPlus.frame.size.width*5., buttonPlus.size.height*2.)];
+    [self setSize:CGSizeMake(buttonPlus.frame.size.width*3., buttonPlus.size.height*1.1)];
     
     [buttonMinus setPosition:CGPointMake(CGRectGetMinX(self.frame)+CGRectGetWidth(buttonPlus.frame)/2.0, 0)];
     [buttonPlus setPosition:CGPointMake(CGRectGetMaxX(self.frame) - CGRectGetWidth(buttonPlus.frame)/2.0, 0)];
@@ -50,14 +50,14 @@
         if (self.value<self.minValue){
             self.value = self.minValue;
         }
-        NSLog(@"Ue");
+        //NSLog(@"Ue");
     }];
     [buttonPlus setHandler:^{
         self.value+=self.amount;
         if (self.value>self.maxValue){
             self.value = self.maxValue;
         }
-        NSLog(@"Uai");
+       // NSLog(@"Uai");
     }];
     
     [self addChild:textScore];

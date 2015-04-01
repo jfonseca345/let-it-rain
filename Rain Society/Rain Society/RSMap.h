@@ -9,19 +9,32 @@
 #import <Foundation/Foundation.h>
 #import <SpriteKit/SpriteKit.h>
 #import "RSField.h"
+#import "RSSprite.h"
 
 @interface RSMap : NSObject
 
 //@property (nonatomic) CGSize
+//Basic properties of map
 @property (nonatomic) int width;
 @property (nonatomic) int height;
 @property (nonatomic) int numberOfFieldsAxisX;
 @property (nonatomic) int numberOfFieldsAxisY;
+//Fields in Map
 @property (nonatomic,strong) NSMutableArray *fields;
 
--(id) initWithWidth: (int) width Height: (int) height;
--(void) createFields: (int) x and: (int) y;
--(RSField*) touchedField : (CGPoint) touch;
+//Action queue
+@property (nonatomic,strong) NSMutableArray *actionQueue;
 
+//Init with width and height
+-(id) initWithWidth: (int) width Height: (int) height;
+//Create x*y Fields
+-(void) createFields: (int) x and: (int) y;
+//Return the touched Field in position touch
+-(RSField*) touchedField : (CGPoint) touch;
+//Add Sprite to field located self.fields in x and y
+-(void) addSprite: (RSSprite*) sprite inField:(int) fieldx and:(int) fieldy;
+
+//Update Fields of Maps, if it had any change.
+-(void)updateFields;
 
 @end
