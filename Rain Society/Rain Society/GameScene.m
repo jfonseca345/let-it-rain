@@ -73,6 +73,7 @@
     
     //Configura um botão para reset
     RSButton* restartButton = [[RSButton alloc] initWithText:@"R"];
+    [restartButton setZPosition:200];
     [restartButton setPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetHeight(self.frame)-150)];
     [restartButton setHandler:^{
         [self restartGame];
