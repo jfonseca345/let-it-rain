@@ -8,13 +8,12 @@
 
 #import "GameScene.h"
 #import "RSMap.h"
+#import "RSButton.h"
 #import "ECity.h"
 #import "ELake.h"
 #import "EMountain.h"
 #import "EForest.h"
 #import "ECloud.h"
-
-
 
 @interface GameScene () <SKPhysicsContactDelegate> {
     SKSpriteNode* t1;
@@ -33,11 +32,7 @@
 
 @implementation GameScene
 
-
-
--(void)didMoveToView:(SKView *)view {
-    /* Setup your scene here */
-    SKLabelNode *myLabel = [SKLabelNode labelNodeWithFontNamed:@"Verdana"];
+-(void) startGame{
     self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
     [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     [self.backgroundImage setSize:self.frame.size];
@@ -58,7 +53,7 @@
     //Configura sprite Montanha
     EMountain *mountain = [[EMountain alloc] initWithPosition:CGPointMake(0,0)];
     mountain.position = CGPointMake( (CGRectGetMaxX( self.frame )/2 + 35), CGRectGetMinY(self.frame)+mountain.frame.size.height-60);
-     // valores definidos por meio de testes
+    // valores definidos por meio de testes
     [self addChild:mountain];
     [self.Mappon addSprite:mountain inField:1 and:0];
     
@@ -76,12 +71,25 @@
     
     [self.Mappon addSprite:forest inField:0 and:0];
     
-    _scoreLabelNode = [SKLabelNode labelNodeWithFontNamed:@"MarkerFelt-Wide"];
-    _scoreLabelNode.position = CGPointMake( CGRectGetMidX( self.frame ), self.frame.size.height / 2 );
-    _scoreLabelNode.text = [NSString stringWithFormat:@"Try your luck!"];
-    [self addChild:_scoreLabelNode];
+    //Configura um botão para reset
+    RSButton* restartButton = [[RSButton alloc] initWithText:@"Restart"];
+    [restartButton setPosition:CGPointMake(200,200)];
+    [restartButton setHandler:^{
+        [self restartGame];
+    }];
+    [self addChild:restartButton];
+    
+    
+}
+-(void) restartGame{
+    [self removeAllChildren];
+    [self startGame];
+}
 
-    [self addChild:myLabel];
+-(void)didMoveToView:(SKView *)view {
+    /* Setup your scene here */
+    [self startGame];
+    
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -90,7 +98,7 @@
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
         SKNode* touchedNode = [self nodeAtPoint:location];
-        if (touchedNode == self.backgroundImage){
+        if (!([touchedNode.name isEqualToString:@"lago"])&&!([touchedNode.name isEqualToString:@"nuvem"])){
             RSField * fieldon = [self.Mappon touchedField:location];
             [fieldon showPopup:self];
             
