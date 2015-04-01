@@ -18,6 +18,7 @@
     self.wind=wind;
     self.sprites = [[NSMutableArray alloc] initWithArray:@[]];
     self.changed = NO;
+    self.cloudControl = NO;
     return self;
 }
 
@@ -37,30 +38,40 @@
     SKLabelNode* temperatureLabel = [[SKLabelNode alloc] initWithFontNamed:@"Verdana"];
     [temperatureLabel setName:@"temperatureLabel"];
     [temperatureLabel setText:@"Temperatura:"];
-    temperatureLabel.position = CGPointMake(-(temperatureLabel.frame.size.width)/2, temperatureLabel.frame.size.height*1.25);
+    temperatureLabel.position = CGPointMake(-(temperatureLabel.frame.size.width)/2+40, temperatureLabel.frame.size.height*1.2);
+    
     SKLabelNode* windLabel = [[SKLabelNode alloc] initWithFontNamed:@"Verdana"];
     [windLabel setName:@"windLabel"];
     [windLabel setText:@"Vento:"];
-    windLabel.position = CGPointMake(-(temperatureLabel.frame.size.width)/2, temperatureLabel.frame.size.height*0.25-10);
+    windLabel.position = CGPointMake(-(temperatureLabel.frame.size.width)/2-10, temperatureLabel.frame.size.height*0.1-15);
     
     
     //RSStepper* pressureStepper = [[RSStepper alloc]initWithProperties:self.pressure andMinValue:0 andMaxValue:50 andAmount:25];
     RSStepper* temperatureStepper = [[RSStepper alloc] initWithProperties:self.temperature andMinValue:-5 andMaxValue:5 andAmount:1];
-    temperatureStepper.position = CGPointMake(20+(temperatureLabel.frame.size.width)/2, temperatureLabel.frame.size.height*1.5-10);
+    temperatureStepper.position = CGPointMake(10+(temperatureLabel.frame.size.width)/2, temperatureLabel.frame.size.height*1.4);
     [temperatureStepper setName:@"temperature"];
     [temperatureStepper setColor:[UIColor redColor]];
     [temperatureStepper setButtonColor:[UIColor blueColor]];
     
-    RSStepper* windStepper = [[RSStepper alloc]initWithProperties:self.wind andMinValue:-10 andMaxValue:10 andAmount:1];
-    windStepper.position = CGPointMake(20+(temperatureLabel.frame.size.width)/2, temperatureLabel.frame.size.height*0.25-20);
+    RSStepper* windStepper = [[RSStepper alloc]initWithProperties:self.wind andMinValue:-1 andMaxValue:1 andAmount:1];
+    windStepper.position = CGPointMake(10+(temperatureLabel.frame.size.width)/2, temperatureLabel.frame.size.height*0.1-15);
     [windStepper setName:@"wind"];
     [windStepper setColor:[UIColor redColor]];
     [windStepper setButtonColor:[UIColor blueColor]];
     
+    SKSpriteNode* rectangle = [SKSpriteNode spriteNodeWithColor:[UIColor colorWithRed:0 green:0.7 blue:0.9 alpha:0.5] size:self.region.size];
+    [rectangle setPosition:self.region.origin];
+    [rectangle setAnchorPoint:CGPointMake(0, 0)];
+    [rectangle setZPosition:100];
+    [gameScene addChild:rectangle];
+    
     RSButton* okButton = [[RSButton alloc]initWithText:@"OK"];
     [okButton setColor:[UIColor redColor]];
-    okButton.position=CGPointMake(0, -temperatureLabel.frame.size.height*1.5);
-    [self.popup setSize:CGSizeMake(temperatureLabel.frame.size.width+temperatureStepper.frame.size.width+20, temperatureLabel.frame.size.height*5)];
+    okButton.position=CGPointMake(0, -temperatureLabel.frame.size.height*1.7);
+    [okButton setSize:CGSizeMake(70, 40)];
+    
+    [self.popup setSize:CGSizeMake(temperatureLabel.frame.size.width+temperatureStepper.frame.size.width+40, temperatureLabel.frame.size.height*5.5)];
+    
     [okButton setHandler:^{
         NSArray* childrenScene = [gameScene children];
         RSContainer* popup;
@@ -85,6 +96,7 @@
             }
             
         }
+        [rectangle removeFromParent];
         ((RSField*)popup.attach).changed=YES;
         [popup removeFromParent];
     }];

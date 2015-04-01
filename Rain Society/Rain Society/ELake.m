@@ -27,7 +27,6 @@
         RSButton* spawnCloudButton = [[RSButton alloc] initWithText:@"Nuvem!"];
         [spawnCloudButton setColor:[UIColor redColor]];
         [spawnCloudButton setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame)+50)];
-        [spawnCloudButton setColor:[UIColor redColor]];
         [spawnCloudButton setHandler:^{
         NSArray* childrenScene = [self.parent children];
         RSButton* popup;
@@ -39,8 +38,7 @@
                 ECloud* cloud = [[ECloud alloc] initWithPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
                 cloud.pressure = 50;
                 [cloud moveSprite:CGPointMake(cloud.position.x, mapFather.height/(mapFather.numberOfFieldsAxisY))];
-                [cloud fadeIn];
-                [mapFather addSprite:cloud inField:0 and:0];
+                [mapFather addSprite:cloud inField:self.fieldX and:self.fieldY];
                 [self.parent addChild:cloud];
                 
             }

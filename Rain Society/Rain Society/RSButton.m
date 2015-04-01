@@ -26,7 +26,7 @@
     //[buttonText setFontSize:100];
     
     [self setSize:CGSizeMake(buttonText.frame.size.width*2, buttonText.frame.size.height*2)];
-    [buttonText setPosition:CGPointMake(0, 0)];
+    [buttonText setPosition:CGPointMake(0, -buttonText.frame.size.height/2)];
     //[self setSize:buttonText.frame.size];
     [self setTexture:[SKTexture textureWithImageNamed:@"background"]];
    [self addChild:buttonText];

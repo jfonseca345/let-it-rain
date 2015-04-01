@@ -42,7 +42,7 @@
     
     [buttonMinus setPosition:CGPointMake(CGRectGetMinX(self.frame)+CGRectGetWidth(buttonPlus.frame)/2.0, 0)];
     [buttonPlus setPosition:CGPointMake(CGRectGetMaxX(self.frame) - CGRectGetWidth(buttonPlus.frame)/2.0, 0)];
-    [textScore setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
+    [textScore setPosition:CGPointMake(CGRectGetMidX(self.frame), -CGRectGetHeight(self.frame)/4)];
     
     [buttonMinus setHandler:^{
         
