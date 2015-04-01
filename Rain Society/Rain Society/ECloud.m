@@ -22,6 +22,9 @@
     self.xScale=self.yScale=0.7;
     [self setPosition:position];
     [self setUserInteractionEnabled:YES];
+    self.particle = 
+    
+    
     return self;
 }
 

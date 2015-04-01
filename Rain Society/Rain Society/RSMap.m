@@ -19,6 +19,9 @@
     self.height=height;
     self.numberOfFieldsAxisX=1;
     self.numberOfFieldsAxisY=1;
+    
+    self.actionQueue = [[NSMutableArray alloc]init];
+    
     return self;
 }
 
@@ -69,38 +72,41 @@
                         NSLog(@"UpdateNuvem");
                         ECloud* cloud = (ECloud*) sprite;
                         
+                        
+                        
                         //Rotinas de vento
-                        if(field.wind > 0)
-                        {
-                            [field.sprites removeObject:sprite];
-                            
-                            [cloud moveSprite:CGPointMake(cloud.position.x+(self.width/self.numberOfFieldsAxisX), cloud.position.y) ];
-                            
-                            
-                            if (i+1<self.numberOfFieldsAxisX){
-                                [self.fields[i+1][j] addSprite:cloud];
-                                [self.fields[i+1][j] setChanged:YES];
-                                cloud.fieldX++;
+                            if(field.wind > 0)
+                            {
+                                //Devemos checar o vento do seu vizinho direito
+                                        //Andemos para a direita
+                                        
+                                        
+                                SKAction* action = [SKAction moveByX:field.region.size.width y:0 duration:1.0];
+                                        [cloud runAction:action completion:^{
+                                            [field.sprites removeObject:sprite];
+                                            if (i+1<self.numberOfFieldsAxisX){
+                                                [self.fields[i+1][j] addSprite:cloud];
+                                                [self.fields[i+1][j] setChanged:YES];
+                                                cloud.fieldX++;
+                                            }
+                                        }];
+                                    }
+                            else if (field.wind<0)
+                                //Andemos para a esquerda
+                            {
+                                SKAction* action = [SKAction moveByX:-(field.region.size.width) y:0 duration:1.0];
+                                [cloud runAction:action completion:^{
+                                    [field.sprites removeObject:sprite];
+                                    if (i-1>=0){
+                                        [self.fields[i-1][j] addSprite:cloud];
+                                        [self.fields[i-1][j] setChanged:YES];
+                                        cloud.fieldX--;
+                                    }
+                                }];
+                                
                             }
-                            
-                            
-                        }else
-                        if(field.wind < 0)
-                        {
-                            [field.sprites removeObject:sprite];
-                            
-                            [cloud moveSprite:CGPointMake(cloud.position.x-(self.width/self.numberOfFieldsAxisX), cloud.position.y) ];
-                            
-                            
-                            if (i-1>self.numberOfFieldsAxisX){
-                                [self.fields[i-1][j] addSprite:cloud];
-                                [self.fields[i-1][j] setChanged:YES];
-                                cloud.fieldX--;
-                            }
-                        }
                         
-                        
-                        if(cloud.pressure<field.pressure){
+                        /*if(cloud.pressure<field.pressure){
                             
                             [field.sprites removeObject:sprite];
                             
@@ -124,7 +130,7 @@
                                 cloud.fieldY--;
                             }
                             
-                        }
+                        }*/
                     }
                     
                     if ([sprite.name isEqualToString:@"lago"]){
