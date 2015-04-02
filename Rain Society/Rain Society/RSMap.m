@@ -98,7 +98,7 @@
                     if ([sprite.name isEqualToString:@"nuvem"]){
                         NSLog(@"UpdateNuvem");
                         ECloud* cloud = (ECloud*) sprite;
-                        
+                            
                         //Rotinas de vento
                         if(field.wind > 0)
                         {

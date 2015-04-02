@@ -62,7 +62,7 @@
     self.Mappon.scene=self;
     
     //Seta os sons
-    self.Mappon.audioPlayer.BGMPlayer.numberOfLoops=-1;
+    self.Mappon.audioPlayer.BGMPlayer.numberOfLoops=1000;
     [self.Mappon.audioPlayer tocaSom:@"Fundo" comVolume:0.1];
     
     //Particulas
@@ -121,7 +121,7 @@
     RSButton* menuButton = [[RSButton alloc] initWithText:@"Sair"];
     //[menuButton setScale:100];
     //[menuButton setTexture:[SKTexture textureWithImageNamed:@"sair"]];
-    [menuButton setZPosition:500];
+    [menuButton setZPosition:2];
     [menuButton setPosition:CGPointMake(CGRectGetMidX(self.frame)+400,CGRectGetHeight(self.frame)-150)];
     [menuButton setHandler:^{
         [self.Mappon.audioPlayer stopSounds:YES];

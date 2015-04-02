@@ -17,7 +17,7 @@
 
 -(id) initWithPosition: (CGPoint) position{
     self = [super initWithImageNamed:@"nuvem"];
-    self.zPosition = 2;
+    self.zPosition = 3;
     [self.physicsBody setDynamic:NO];
     self.xScale=self.yScale=0.7;
     [self setPosition:position];

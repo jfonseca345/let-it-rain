@@ -50,7 +50,9 @@
     music.nomeDoArquivo = @"The Forest and the Trees";
     music.extensaoDoArquivo = @"mp3";
     [player.SoundArray addObject:music];
-    player.BGMPlayer.numberOfLoops=-1;
+    [player.SoundArray addObject:music];
+    [player.SoundArray addObject:music];
+    [player.SoundArray addObject:music];
     [player tocaSom:@"StartSong" comVolume:0.2];
     /*Configura botão de inicio*/
     
