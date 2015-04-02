@@ -14,6 +14,7 @@
 #import "EMountain.h"
 #import "EForest.h"
 #import "ECloud.h"
+#import "RSAudioPlayer.h"
 
 @interface GameScene () <SKPhysicsContactDelegate> {
     SKSpriteNode* t1;
@@ -31,7 +32,7 @@
 @implementation GameScene
 
 -(void) startGame{
-    SKView * skView = (SKView *)self.view;
+    //SKView * skView = (SKView *)self.view;
     self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background2"];
     [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     [self.backgroundImage setSize:CGSizeMake(self.size.width,self.size.height-140)];
@@ -40,12 +41,26 @@
     self.Mappon = [[RSMap alloc] initWithWidth:CGRectGetWidth(self.frame) Height:CGRectGetHeight(self.frame)];
     [self.Mappon createFields:3 and:2];
     self.Mappon.scene=self;
+    
+    //Seta os sons
+    [self.Mappon.audioPlayer tocaSom:@"Fundo" comVolume:0.1];
+    
+    //Particulas
+    SKEmitterNode* particle;
+    NSString *particlePath = [[NSBundle mainBundle] pathForResource:@"TinyBits" ofType:@"sks"];
+    particle = [NSKeyedUnarchiver unarchiveObjectWithFile:particlePath];
+    particle.targetNode = self;
+    particle.position = CGPointMake(0,(-1)*self.frame.size.height/2);
+    
+    //Comecamos a emitir
+    [self addChild: particle];
+    
 
     
     //Configura sprite cidade
     ECity *city = [[ECity alloc] initWithPosition:CGPointMake(0, 0)];
     // valores definidos por meio de testes
-    [city setSizes:0.8 andLocation:CGPointMake( CGRectGetMaxX( self.frame )-city.frame.size.width/2 + 25, CGRectGetMinY(self.frame)+city.frame.size.height-40)];
+    [city setSizes:0.9 andLocation:CGPointMake( CGRectGetMaxX( self.frame )-city.frame.size.width/2 + 25, CGRectGetMinY(self.frame)+city.frame.size.height-30)];
     [self addChild:city];
     [self.Mappon addSprite:city inField:2 and:0];
     
@@ -91,6 +106,7 @@
 }
 -(void) restartGame{
     [self removeAllChildren];
+    [self.Mappon.audioPlayer stopBGM:YES];
     [self startGame];
 }
 

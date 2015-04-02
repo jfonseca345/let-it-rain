@@ -10,6 +10,8 @@
 #import <SpriteKit/SpriteKit.h>
 #import "RSField.h"
 #import "RSSprite.h"
+#import "RSSound.h"
+#import "RSAudioPlayer.h"
 
 @interface RSMap : NSObject
 
@@ -23,13 +25,19 @@
 @property (nonatomic,strong) NSMutableArray *fields;
 @property (nonatomic) SKNode *scene;
 
-//Action queue
-@property (nonatomic,strong) NSMutableArray *actionQueue;
+//Sound properties of map
+@property (nonatomic, strong) RSAudioPlayer *audioPlayer;
+
+//Auxiliary booleans
+@property (nonatomic) BOOL isCloud;
+
 
 //Init with width and height
 -(id) initWithWidth: (int) width Height: (int) height;
 //Create x*y Fields
 -(void) createFields: (int) x and: (int) y;
+//Load all sounds used
+-(void) loadSounds;
 //Return the touched Field in position touch
 -(RSField*) touchedField : (CGPoint) touch;
 //Add Sprite to field located self.fields in x and y

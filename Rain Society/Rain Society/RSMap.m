@@ -10,6 +10,8 @@
 #import "RSField.h"
 #import "ECloud.h"
 #import "ELake.h"
+#import "RSSound.h"
+#import "RSAudioPlayer.h"
 
 @implementation RSMap
 
@@ -19,8 +21,11 @@
     self.height=height;
     self.numberOfFieldsAxisX=1;
     self.numberOfFieldsAxisY=1;
+    self.isCloud = NO;
     
-    self.actionQueue = [[NSMutableArray alloc]init];
+    self.audioPlayer = [[RSAudioPlayer alloc]init];
+    [self loadSounds];
+    
     
     return self;
 }
@@ -42,6 +47,25 @@
     
 }
 
+- (void) loadSounds
+{
+    RSSound *music = [[RSSound alloc]init];
+    music.tipo = BGM;
+    music.nomeDoSom = @"Fundo";
+    music.nomeDoArquivo = @"Easy Lemon";
+    music.extensaoDoArquivo = @"mp3";
+    
+    RSSound *rainFX = [[RSSound alloc]init];
+    rainFX.tipo = SFX;
+    rainFX.nomeDoSom = @"rainFX";
+    rainFX.nomeDoArquivo = @"rainSound";
+    rainFX.extensaoDoArquivo = @"mp3";
+    [self.audioPlayer.SoundArray addObject: music];
+    [self.audioPlayer.SoundArray addObject: rainFX];
+    
+    
+}
+
 
 -(RSField*) touchedField : (CGPoint) touch{
     int heightIndex = (touch.y*self.numberOfFieldsAxisY)/(self.height);
@@ -59,6 +83,9 @@
 }
 
 -(void)updateFields{
+    //Territorio da montanha
+    CGPoint unpassableTerrain = CGPointMake(1, 0);
+    
     for (int i=0;i<self.numberOfFieldsAxisX;i++){
         for (int j=0;j<self.numberOfFieldsAxisY;j++){
             //Actual field
@@ -72,26 +99,38 @@
                         NSLog(@"UpdateNuvem");
                         ECloud* cloud = (ECloud*) sprite;
                         
-                        
-                        
                         //Rotinas de vento
                         if(field.wind > 0)
                         {
                             //Devemos checar o vento do seu vizinho direito
                             //Andemos para a direita
-                            
                             if (!(field.cloudControl)){
                                 [field setCloudControl:YES];
-                            SKAction* action = [SKAction moveByX:field.region.size.width y:0 duration:1.0];
-                            [cloud runAction:action completion:^{
-                                [field.sprites removeObject:sprite];
-                                if (i+1<self.numberOfFieldsAxisX){
-                                    [self.fields[i+1][j] addSprite:cloud];
-                                    [self.fields[i+1][j] setChanged:YES];
-                                    cloud.fieldX++;
-                                    [field setCloudControl:NO];
+                                
+                                if(((i+1)==unpassableTerrain.x) && (j==unpassableTerrain.y))
+                                {
+                                    SKAction* action = [SKAction moveByX:(field.region.size.width)/2 y:0 duration:1.0];
+                                    [cloud runAction:action completion:^{
+                                        SKAction* backAction = [SKAction moveByX:-(field.region.size.width)/2 y:0 duration:1.0];
+                                        [cloud runAction:backAction];
+                                        field.changed = YES;
+                                        [field setCloudControl:NO];
+                                    }];
+                                    
+                                }else
+                                    
+                                {
+                                    SKAction* action = [SKAction moveByX:field.region.size.width y:0 duration:1.0];
+                                    [cloud runAction:action completion:^{
+                                        [field.sprites removeObject:sprite];
+                                        if (i+1<self.numberOfFieldsAxisX){
+                                            [self.fields[i+1][j] addSprite:cloud];
+                                            [self.fields[i+1][j] setChanged:YES];
+                                            cloud.fieldX++;
+                                            [field setCloudControl:NO];
+                                        }
+                                    }];
                                 }
-                            }];
                             }
                         }
                         else if (field.wind<0)
@@ -99,16 +138,30 @@
                         {
                             if (!(field.cloudControl)){
                                 [field setCloudControl:YES];
-                            SKAction* action = [SKAction moveByX:-(field.region.size.width) y:0 duration:1.0];
-                            [cloud runAction:action completion:^{
-                                [field.sprites removeObject:sprite];
-                                if (i-1>=0){
-                                    [self.fields[i-1][j] addSprite:cloud];
-                                    [self.fields[i-1][j] setChanged:YES];
-                                    cloud.fieldX--;
-                                    [field setCloudControl:NO];
+                                //Adentramos a montanha
+                                if(((i-1)==unpassableTerrain.x) && (j==unpassableTerrain.y))
+                                {
+                                    SKAction* action = [SKAction moveByX:-(field.region.size.width)/1.2 y:0 duration:1.0];
+                                    [cloud runAction:action completion:^{
+                                        SKAction* backAction = [SKAction moveByX:(field.region.size.width)/1.2 y:0 duration:1.0];
+                                        [cloud runAction:backAction];
+                                        field.changed = YES;
+                                        [field setCloudControl:NO];
+                                    }];
+                                    
+                                }else
+                                {
+                                    SKAction* action = [SKAction moveByX:-(field.region.size.width) y:0 duration:1.0];
+                                    [cloud runAction:action completion:^{
+                                        [field.sprites removeObject:sprite];
+                                        if (i-1>=0){
+                                            [self.fields[i-1][j] addSprite:cloud];
+                                            [self.fields[i-1][j] setChanged:YES];
+                                            cloud.fieldX--;
+                                            [field setCloudControl:NO];
+                                        }
+                                    }];
                                 }
-                            }];
                             }
                             
                         }
@@ -127,28 +180,50 @@
                             
                         }
                         else if(cloud.pressure>field.pressure){
-                            SKAction* action = [SKAction moveByX:0 y:-(field.region.size.height/2) duration:1.0];
-                            [cloud runAction:action completion:^{
-                                [field.sprites removeObject:sprite];
-                                if (j-1>=0){
-                                    [self.fields[i][j-1] addSprite:cloud];
-                                    [self.fields[i][j-1] setChanged:YES];
-                                    cloud.fieldY--;
-                                }
-                            }];
-                            
+                            if(((i)==unpassableTerrain.x) && ((j-1)==unpassableTerrain.y))
+                            {
+                                SKAction* action = [SKAction moveByX:0 y:-(field.region.size.height/3) duration:0.7];
+                                [cloud runAction:action completion:^{
+                                    SKAction* backAction = [SKAction moveByX:0 y:(field.region.size.height/3) duration:0.7];
+                                    [cloud runAction:backAction];
+                                }];
+                            }else{
+                                SKAction* action = [SKAction moveByX:0 y:-(field.region.size.height/2) duration:1.0];
+                                [cloud runAction:action completion:^{
+                                    [field.sprites removeObject:sprite];
+                                    if (j-1>=0){
+                                        [self.fields[i][j-1] addSprite:cloud];
+                                        [self.fields[i][j-1] setChanged:YES];
+                                        cloud.fieldY--;
+                                    }
+                                }];
+                            }
                         }
                         
                         if (field.temperature<-2) {
                             [cloud emitParticleNamed:@"RainParticle"];
-                            SKLabelNode *victoryLabel = [SKLabelNode labelNodeWithText:@"Sucesso!"];
-                            victoryLabel.fontName=@"Chalkduster";
-                            victoryLabel.fontSize=100;
-                            victoryLabel.position=CGPointMake(CGRectGetMidX(self.scene.frame),CGRectGetMidY(self.scene.frame));
-                            [self.scene addChild:victoryLabel];
+                            [self.audioPlayer tocaSom:@"rainSound" comVolume:0.1];
+                            if(cloud.fieldX == (self.numberOfFieldsAxisX-1) && cloud.fieldY==0)
+                            {
+                                SKLabelNode *victoryLabel = [SKLabelNode labelNodeWithText:@"Sucesso!"];
+                                victoryLabel.fontName=@"Chalkduster";
+                                victoryLabel.fontSize=100;
+                                victoryLabel.position=CGPointMake(CGRectGetMidX(self.scene.frame),CGRectGetMidY(self.scene.frame));
+                                [self.scene addChild:victoryLabel];
+                                SKAction *fadeOut = [SKAction fadeOutWithDuration:3];
+                                [cloud runAction: fadeOut completion:^{
+                                    [self.audioPlayer stopSFX:YES];
+                                    [cloud removeFromParent];
+                                    cloud.fieldX = 0;
+                                    cloud.fieldY = 0;
+                        
+                                }];
+                                
+                            }
                         }
                         else{
                             [cloud stopEmiting];
+                            [self.audioPlayer stopSFX:YES];
                         }
                         
                     }
@@ -159,7 +234,12 @@
                         ELake* lake = (ELake*) sprite;
                         
                         if(field.temperature>=3){
-                            lake.spawnCloud=YES;
+                            if(self.isCloud == NO)
+                            {
+                                lake.spawnCloud=YES;
+                                self.isCloud = YES;
+                            }else
+                                lake.spawnCloud = NO;
                         }
                         else{
                             lake.spawnCloud=NO;

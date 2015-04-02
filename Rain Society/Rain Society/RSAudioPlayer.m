@@ -18,15 +18,24 @@
 
 @implementation RSAudioPlayer
 
+///Metodo construtor
+
+-(id) init
+{
+    self = [super init];
+    self.SoundArray = [[NSMutableArray alloc]init];
+    return self;
+}
 
 ///Busca um som no SoundArray e o retorna
 - (RSSound*) encontraSom: (NSString*) nomeDoSom
 {
     RSSound *som;
     //Procuramos o som no nosso Array de som
-    for(som in self.SoundArray)
+    for(int i=0;i<self.SoundArray.count;i++)
     {
-        if([som.nomeDoSom isEqualToString:nomeDoSom])
+        som = self.SoundArray[i];
+        if([som.nomeDoSom isEqual :nomeDoSom])
             break;
     }
     

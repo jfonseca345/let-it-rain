@@ -31,6 +31,4 @@ typedef enum tipos
 
 @property (nonatomic) TipoDeSom tipo;
 
-
-
 @end

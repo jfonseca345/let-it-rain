@@ -17,7 +17,7 @@
 @property (nonatomic,strong) AVAudioPlayer* SFXPlayer;
 
 //Array que salvara o nome, endereco, extensao e tipo de todos os nossos arquivos de som
-@property (nonatomic,strong) NSArray* SoundArray;
+@property (nonatomic,strong) NSMutableArray* SoundArray;
 
 ///Busca um som no SoundArray e o retorna
 - (RSSound*) encontraSom: (NSString*) nomeDoSom;

@@ -47,7 +47,7 @@
 
 - (void) fadeOut
 {
-    SKAction *fadeOut = [SKAction fadeOutWithDuration:3];
+    SKAction *fadeOut = [SKAction fadeOutWithDuration:4];
     [self runAction: fadeOut];
 }
 

@@ -11,7 +11,7 @@
 @implementation ECity
 
 -(id) initWithPosition: (CGPoint) position{
-    self = [super initWithImageNamed:@"cidade"];
+    self = [super initWithImageNamed:@"cidade2"];
     self.zPosition = 1;
     [self setPosition:position];
     [self.physicsBody setDynamic:NO];
