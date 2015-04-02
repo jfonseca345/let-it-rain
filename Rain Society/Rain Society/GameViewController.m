@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "Welcome.h"
+#import "Tutorial.h"
 
 @implementation SKScene (Unarchive)
 
@@ -45,13 +46,17 @@
 
     
     // Create and configure the scene.
-    //GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
-    //scene.scaleMode = SKSceneScaleModeAspectFill;
+    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    scene.scaleMode = SKSceneScaleModeAspectFill;
     GameScene *welcome = (GameScene*)[Welcome sceneWithSize:(skView.frame.size)];
     welcome.scaleMode = SKSceneScaleModeAspectFill;
+    GameScene *tutorial = (GameScene*)[Tutorial sceneWithSize:(skView.frame.size)];
+    tutorial.scaleMode = SKSceneScaleModeAspectFill;
+
     // Present the scene.
     //[skView presentScene:scene];
-    [skView presentScene:welcome];
+    //[skView presentScene:welcome];
+    [skView presentScene:tutorial];
  ///   skView pre
     
 }

@@ -8,6 +8,8 @@
 
 #import "GameScene.h"
 #import "RSMap.h"
+#import "Tutorial.h"
+#import "Welcome.h"
 #import "RSButton.h"
 #import "ECity.h"
 #import "ELake.h"
@@ -27,12 +29,29 @@
 @property (nonatomic) RSMap* Mappon;
 @property (nonatomic,strong) SKSpriteNode* backgroundImage;
 @end
+@implementation SKScene (Unarchive)
 
++ (instancetype)unarchiveFromFile:(NSString *)file {
+    /* Retrieve scene file path from the application bundle */
+    NSString *nodePath = [[NSBundle mainBundle] pathForResource:file ofType:@"sks"];
+    /* Unarchive the file to an SKScene object */
+    NSData *data = [NSData dataWithContentsOfFile:nodePath
+                                          options:NSDataReadingMappedIfSafe
+                                            error:nil];
+    NSKeyedUnarchiver *arch = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    [arch setClass:self forClassName:@"SKScene"];
+    SKScene *scene = [arch decodeObjectForKey:NSKeyedArchiveRootObjectKey];
+    [arch finishDecoding];
+    
+    return scene;
+}
+
+@end
 
 @implementation GameScene
 
 -(void) startGame{
-    //SKView * skView = (SKView *)self.view;
+    SKView * skView = (SKView *)self.view;
     self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background2"];
     [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     [self.backgroundImage setSize:CGSizeMake(self.size.width,self.size.height-140)];
@@ -43,6 +62,7 @@
     self.Mappon.scene=self;
     
     //Seta os sons
+    self.Mappon.audioPlayer.BGMPlayer.numberOfLoops=-1;
     [self.Mappon.audioPlayer tocaSom:@"Fundo" comVolume:0.1];
     
     //Particulas
@@ -88,17 +108,33 @@
     //Configura um botão para reset
     RSButton* restartButton = [[RSButton alloc] initWithText:@"R"];
     [restartButton setZPosition:200];
-    [restartButton setPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetHeight(self.frame)-150)];
+    [restartButton setPosition:CGPointMake(CGRectGetMidX(self.frame)-20,CGRectGetHeight(self.frame)-150)];
     [restartButton setHandler:^{
         [self restartGame];
     }];
     [self addChild:restartButton];
     
-    RSButton* menuButton = [[RSButton alloc] initWithText:@"R"];
-    [menuButton setZPosition:200];
-    [menuButton setPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetHeight(self.frame)-150)];
+    
+    GameScene *tutorial = (GameScene*)[Tutorial sceneWithSize:(skView.frame.size)];
+    tutorial.scaleMode = SKSceneScaleModeAspectFill;
+    RSButton* tutorialButton = [[RSButton alloc] initWithText:@"Tutorial"];
+    [tutorialButton setZPosition:200];
+    [tutorialButton setPosition:CGPointMake(CGRectGetMidX(self.frame)+300,CGRectGetHeight(self.frame)-150)];
+    [tutorialButton setHandler:^{
+        [self.Mappon.audioPlayer stopSounds:YES];
+        [skView presentScene:tutorial];
+    }];
+    //[self addChild:tutorialButton];
+    
+    GameScene *welcome = (GameScene*)[Welcome sceneWithSize:(skView.frame.size)];
+    welcome.scaleMode = SKSceneScaleModeAspectFill;
+    RSButton* menuButton = [[RSButton alloc] initWithImageNamed:@"sair"];
+    [menuButton setScale:0.1];
+    [menuButton setZPosition:500];
+    [menuButton setPosition:CGPointMake(CGRectGetMidX(self.frame)+350,CGRectGetHeight(self.frame)-150)];
     [menuButton setHandler:^{
-        
+        [self.Mappon.audioPlayer stopSounds:YES];
+        [skView presentScene:welcome];
     }];
     [self addChild:menuButton];
 

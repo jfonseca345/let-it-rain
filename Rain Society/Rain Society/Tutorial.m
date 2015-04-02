@@ -1,12 +1,12 @@
 //
-//  Welcome.m
+//  Tutorial.m
 //  Rain Society
 //
-//  Created by Letícia Gonçalves on 4/1/15.
+//  Created by Letícia Gonçalves on 4/2/15.
 //  Copyright (c) 2015 Jucelio Fonseca. All rights reserved.
 //
 
-#import "Welcome.h"
+#import "Tutorial.h"
 #import "RSButton.h"
 #import "GameViewController.h"
 #import "GameScene.h"
@@ -32,18 +32,18 @@
 @end
 
 
-@implementation Welcome
+@implementation Tutorial
 
 
 -(void)didMoveToView:(SKView *)view {
     /* Setup your scene here */
     SKView * skView = (SKView *)self.view;
     /*Configura Plano de Fundo*/
-    self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"Let it rain header"];
+    self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"instrucoes"];
     [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     [self.backgroundImage setSize:CGSizeMake(self.size.width,self.size.height)];
     [self addChild:self.backgroundImage];
-    /*Seta a musica*/
+    /*Seta a musica
     RSAudioPlayer *player = [[RSAudioPlayer alloc]init];
     RSSound *music = [[RSSound alloc]init];
     music.nomeDoSom = @"StartSong";
@@ -52,24 +52,24 @@
     [player.SoundArray addObject:music];
     player.BGMPlayer.numberOfLoops=-1;
     [player tocaSom:@"StartSong" comVolume:0.2];
-    
+    */
     /*Configura botão de inicio*/
-
+    
     GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
     scene.scaleMode = SKSceneScaleModeAspectFill;
     
-    RSButton* startButton = [[RSButton alloc] initWithText:@"Começar"];
-    [startButton setTexture:[SKTexture textureWithImageNamed:@"start"]];
+    RSButton* startButton = [[RSButton alloc] initWithText:@"Começar!"];
+//    [startButton setTexture:[SKTexture textureWithImageNamed:@"start"]];
     [startButton setZPosition:200];
-    [startButton setPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame))];
+    [startButton setPosition:CGPointMake(CGRectGetMidX(self.frame)+200,CGRectGetMidY(self.frame)+50)];
     [startButton setHandler:^{
-        [player stopSounds:YES];
+       // [player stopSounds:YES];
         [skView presentScene:scene];
     }];
     [self addChild:startButton];
     
     
-
+    
     
 }
 
