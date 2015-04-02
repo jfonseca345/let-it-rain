@@ -28,20 +28,19 @@
 @end
 
 
-
-
 @implementation GameScene
 
 -(void) startGame{
-    self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background"];
+    SKView * skView = (SKView *)self.view;
+    self.backgroundImage = [SKSpriteNode spriteNodeWithImageNamed:@"background2"];
     [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
-    [self.backgroundImage setSize:self.frame.size];
+    [self.backgroundImage setSize:CGSizeMake(self.size.width,self.size.height-140)];
     [self addChild:self.backgroundImage];
     
     self.Mappon = [[RSMap alloc] initWithWidth:CGRectGetWidth(self.frame) Height:CGRectGetHeight(self.frame)];
     [self.Mappon createFields:3 and:2];
-    
-    [self setBackgroundColor:[UIColor greenColor]];
+    self.Mappon.scene=self;
+
     
     //Configura sprite cidade
     ECity *city = [[ECity alloc] initWithPosition:CGPointMake(0, 0)];
@@ -72,13 +71,22 @@
     [self.Mappon addSprite:forest inField:0 and:0];
     
     //Configura um botão para reset
-    RSButton* restartButton = [[RSButton alloc] initWithText:@"Restart"];
-    [restartButton setPosition:CGPointMake(200,200)];
+    RSButton* restartButton = [[RSButton alloc] initWithText:@"R"];
+    [restartButton setZPosition:200];
+    [restartButton setPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetHeight(self.frame)-150)];
     [restartButton setHandler:^{
         [self restartGame];
     }];
     [self addChild:restartButton];
     
+    RSButton* menuButton = [[RSButton alloc] initWithText:@"R"];
+    [menuButton setZPosition:200];
+    [menuButton setPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetHeight(self.frame)-150)];
+    [menuButton setHandler:^{
+        
+    }];
+    [self addChild:menuButton];
+
     
 }
 -(void) restartGame{
@@ -101,21 +109,6 @@
         if (!([touchedNode.name isEqualToString:@"lago"])&&!([touchedNode.name isEqualToString:@"nuvem"])){
             RSField * fieldon = [self.Mappon touchedField:location];
             [fieldon showPopup:self];
-            
-            /*SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"nuvem"];
-            sprite.zPosition=100;
-            sprite.xScale = 1;
-            sprite.yScale = 1;
-            sprite.position = location;
-            sprite.physicsBody = [SKPhysicsBody bodyWithTexture:[SKTexture textureWithImageNamed:@"nuvem"] size:sprite.frame.size];
-            sprite.physicsBody.allowsRotation=NO;
-            sprite.physicsBody.dynamic=NO;
-            sprite.physicsBody.allowsRotation=NO;*/
-            //if(fieldon.lake==YES && fieldon.temperature>=5){
-           //     [self addChild:sprite];
-            //    SKAction *rise = [SKAction moveToY:600 duration: 3];
-             //   [sprite runAction:rise];
-            //}
         }
     }
 }

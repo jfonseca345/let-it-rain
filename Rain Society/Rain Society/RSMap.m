@@ -61,7 +61,9 @@
 -(void)updateFields{
     for (int i=0;i<self.numberOfFieldsAxisX;i++){
         for (int j=0;j<self.numberOfFieldsAxisY;j++){
+            //Actual field
             RSField* field = self.fields[i][j];
+            //if variable of field has changed
             if (field.changed){
                 NSLog(@"Update(%d,%d)",i,j);
                 for(RSSprite* sprite in field.sprites){
@@ -73,63 +75,84 @@
                         
                         
                         //Rotinas de vento
-                            if(field.wind > 0)
-                            {
-                                //Devemos checar o vento do seu vizinho direito
-                                        //Andemos para a direita
-                                        
-                                        
-                                SKAction* action = [SKAction moveByX:field.region.size.width y:0 duration:1.0];
-                                        [cloud runAction:action completion:^{
-                                            [field.sprites removeObject:sprite];
-                                            if (i+1<self.numberOfFieldsAxisX){
-                                                [self.fields[i+1][j] addSprite:cloud];
-                                                [self.fields[i+1][j] setChanged:YES];
-                                                cloud.fieldX++;
-                                            }
-                                        }];
-                                    }
-                            else if (field.wind<0)
-                                //Andemos para a esquerda
-                            {
-                                SKAction* action = [SKAction moveByX:-(field.region.size.width) y:0 duration:1.0];
-                                [cloud runAction:action completion:^{
-                                    [field.sprites removeObject:sprite];
-                                    if (i-1>=0){
-                                        [self.fields[i-1][j] addSprite:cloud];
-                                        [self.fields[i-1][j] setChanged:YES];
-                                        cloud.fieldX--;
-                                    }
-                                }];
-                                
+                        if(field.wind > 0)
+                        {
+                            //Devemos checar o vento do seu vizinho direito
+                            //Andemos para a direita
+                            
+                            if (!(field.cloudControl)){
+                                [field setCloudControl:YES];
+                            SKAction* action = [SKAction moveByX:field.region.size.width y:0 duration:1.0];
+                            [cloud runAction:action completion:^{
+                                [field.sprites removeObject:sprite];
+                                if (i+1<self.numberOfFieldsAxisX){
+                                    [self.fields[i+1][j] addSprite:cloud];
+                                    [self.fields[i+1][j] setChanged:YES];
+                                    cloud.fieldX++;
+                                    [field setCloudControl:NO];
+                                }
+                            }];
                             }
-                        
-                        /*if(cloud.pressure<field.pressure){
-                            
-                            [field.sprites removeObject:sprite];
-                            
-                            [cloud moveSprite:CGPointMake(cloud.position.x, cloud.position.y+(self.height/(2*self.numberOfFieldsAxisY))) ];
-                            
-                            if (j+1<self.numberOfFieldsAxisY){
-                                [self.fields[i][j+1] addSprite:cloud];
-                                [self.fields[i][j+1] setChanged:YES];
-                                cloud.fieldY++;
+                        }
+                        else if (field.wind<0)
+                            //Andemos para a esquerda
+                        {
+                            if (!(field.cloudControl)){
+                                [field setCloudControl:YES];
+                            SKAction* action = [SKAction moveByX:-(field.region.size.width) y:0 duration:1.0];
+                            [cloud runAction:action completion:^{
+                                [field.sprites removeObject:sprite];
+                                if (i-1>=0){
+                                    [self.fields[i-1][j] addSprite:cloud];
+                                    [self.fields[i-1][j] setChanged:YES];
+                                    cloud.fieldX--;
+                                    [field setCloudControl:NO];
+                                }
+                            }];
                             }
                             
                         }
+                        
+                        if(cloud.pressure<field.pressure){
+                            
+                            SKAction* action = [SKAction moveByX:0 y:(field.region.size.height/2) duration:1.0];
+                            [cloud runAction:action completion:^{
+                                [field.sprites removeObject:sprite];
+                                if (j+1<self.numberOfFieldsAxisY){
+                                    [self.fields[i][j+1] addSprite:cloud];
+                                    [self.fields[i][j+1] setChanged:YES];
+                                    cloud.fieldY++;
+                                }
+                            }];
+                            
+                        }
                         else if(cloud.pressure>field.pressure){
-                            [field.sprites removeObject:sprite];
+                            SKAction* action = [SKAction moveByX:0 y:-(field.region.size.height/2) duration:1.0];
+                            [cloud runAction:action completion:^{
+                                [field.sprites removeObject:sprite];
+                                if (j-1>=0){
+                                    [self.fields[i][j-1] addSprite:cloud];
+                                    [self.fields[i][j-1] setChanged:YES];
+                                    cloud.fieldY--;
+                                }
+                            }];
                             
-                            [cloud moveSprite:CGPointMake(cloud.position.x, cloud.position.y-(self.height/(2*self.numberOfFieldsAxisY)))];
-                            
-                            if (j>0){
-                                [self.fields[i][j-1] addSprite:cloud];
-                                [self.fields[i][j-1] setChanged:YES];
-                                cloud.fieldY--;
-                            }
-                            
-                        }*/
+                        }
+                        
+                        if (field.temperature<-2) {
+                            [cloud emitParticleNamed:@"RainParticle"];
+                            SKLabelNode *victoryLabel = [SKLabelNode labelNodeWithText:@"Sucesso!"];
+                            victoryLabel.fontName=@"Chalkduster";
+                            victoryLabel.fontSize=100;
+                            victoryLabel.position=CGPointMake(CGRectGetMidX(self.scene.frame),CGRectGetMidY(self.scene.frame));
+                            [self.scene addChild:victoryLabel];
+                        }
+                        else{
+                            [cloud stopEmiting];
+                        }
+                        
                     }
+                    
                     
                     if ([sprite.name isEqualToString:@"lago"]){
                         NSLog(@"UpdateLago");
@@ -144,7 +167,7 @@
                     }
                     
                 }
-                field.changed=NO;
+                field.changed = NO;
             }
         }
     }

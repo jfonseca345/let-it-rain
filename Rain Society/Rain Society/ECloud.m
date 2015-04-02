@@ -37,7 +37,7 @@
     SKLabelNode* pressureLabel = [[SKLabelNode alloc] initWithFontNamed:@"Verdana"];
     [pressureLabel setName:@"pressureLabel"];
     [pressureLabel setText:@"Pressao:"];
-    pressureLabel.position = CGPointMake(-(pressureLabel.frame.size.width)/2, pressureLabel.frame.size.height*1.25);
+    pressureLabel.position = CGPointMake(-(pressureLabel.frame.size.width)/2, pressureLabel.frame.size.height);
     
     RSStepper* pressureStepper = [[RSStepper alloc]initWithProperties:self.pressure andMinValue:0 andMaxValue:50 andAmount:25];
         pressureStepper.position = CGPointMake(20+(pressureLabel.frame.size.width)/2, pressureLabel.frame.size.height*1.5-10);
@@ -45,11 +45,11 @@
     [pressureStepper setColor:[UIColor redColor]];
     [pressureStepper setButtonColor:[UIColor blueColor]];
     
-    [popup setSize:CGSizeMake(pressureLabel.frame.size.width+pressureStepper.frame.size.width+30, pressureLabel.frame.size.height*4)];
+    [popup setSize:CGSizeMake(pressureLabel.frame.size.width+pressureStepper.frame.size.width+30, pressureLabel.frame.size.height*5)];
     
     RSButton* okButton = [[RSButton alloc]initWithText:@"OK"];
     [okButton setColor:[UIColor redColor]];
-    okButton.position=CGPointMake(0, -pressureLabel.frame.size.height*1.5);
+    okButton.position=CGPointMake(-10, -pressureLabel.frame.size.height);
     
     [okButton setHandler:^{
         NSArray* childrenScene = [self children];

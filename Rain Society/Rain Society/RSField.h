@@ -26,6 +26,8 @@
 @property BOOL changed;
 //popup to change field
 @property (nonatomic) RSContainer *popup;
+//If the cloud send the movement action to cloud or not
+@property BOOL cloudControl;
 
 
 //Init with temperature, pressure and wind
