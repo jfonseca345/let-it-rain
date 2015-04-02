@@ -10,6 +10,8 @@
 #import "RSButton.h"
 #import "GameViewController.h"
 #import "GameScene.h"
+#import "RSAudioPlayer.h"
+
 @implementation SKScene (Unarchive)
 
 + (instancetype)unarchiveFromFile:(NSString *)file {
@@ -41,6 +43,14 @@
     [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     [self.backgroundImage setSize:CGSizeMake(self.size.width,self.size.height)];
     [self addChild:self.backgroundImage];
+    /*Seta a musica*/
+    RSAudioPlayer *player = [[RSAudioPlayer alloc]init];
+    RSSound *music = [[RSSound alloc]init];
+    music.nomeDoSom = @"StartSong";
+    music.nomeDoArquivo = @"The Forest and the Trees";
+    music.extensaoDoArquivo = @"mp3";
+    [player.SoundArray addObject:music];
+    [player tocaSom:@"StartSong" comVolume:0.2];
     
     /*Configura botão de inicio*/
 
@@ -51,6 +61,7 @@
     [startButton setZPosition:200];
     [startButton setPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame))];
     [startButton setHandler:^{
+        [player stopSounds:YES];
         [skView presentScene:scene];
     }];
     [self addChild:startButton];

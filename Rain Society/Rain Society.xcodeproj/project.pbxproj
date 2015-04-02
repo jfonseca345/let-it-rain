@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		184093511AC4346500C5AEB1 /* RSAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 184093501AC4346500C5AEB1 /* RSAudioPlayer.m */; };
 		184B4B161ACD8BD4004FDA30 /* rainSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 184B4B151ACD8BD4004FDA30 /* rainSound.mp3 */; };
+		184B4B181ACDA371004FDA30 /* The Forest and the Trees.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 184B4B171ACDA371004FDA30 /* The Forest and the Trees.mp3 */; };
+		184B4B1A1ACDA940004FDA30 /* instrucoes.png in Resources */ = {isa = PBXBuildFile; fileRef = 184B4B191ACDA940004FDA30 /* instrucoes.png */; };
 		18C3D6D81ACC13B1007F52B8 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C3D6D71ACC13B1007F52B8 /* background2.png */; };
 		18C3D6DA1ACD78D6007F52B8 /* Easy Lemon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 18C3D6D91ACD78D6007F52B8 /* Easy Lemon.mp3 */; };
 		18C3D6DD1ACD7E82007F52B8 /* cidade2.png in Resources */ = {isa = PBXBuildFile; fileRef = 18C3D6DC1ACD7E82007F52B8 /* cidade2.png */; };
@@ -53,6 +55,8 @@
 		184093501AC4346500C5AEB1 /* RSAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAudioPlayer.m; sourceTree = "<group>"; };
 		184093521AC43B8E00C5AEB1 /* RSSound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSound.h; sourceTree = "<group>"; };
 		184B4B151ACD8BD4004FDA30 /* rainSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = rainSound.mp3; path = ../rainSound.mp3; sourceTree = "<group>"; };
+		184B4B171ACDA371004FDA30 /* The Forest and the Trees.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Forest and the Trees.mp3"; sourceTree = "<group>"; };
+		184B4B191ACDA940004FDA30 /* instrucoes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instrucoes.png; sourceTree = "<group>"; };
 		18C3D6D71ACC13B1007F52B8 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background2.png; path = ../background2.png; sourceTree = "<group>"; };
 		18C3D6D91ACD78D6007F52B8 /* Easy Lemon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Easy Lemon.mp3"; sourceTree = "<group>"; };
 		18C3D6DC1ACD7E82007F52B8 /* cidade2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cidade2.png; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		18C3D6DB1ACD78F2007F52B8 /* Sound Files */ = {
 			isa = PBXGroup;
 			children = (
+				184B4B171ACDA371004FDA30 /* The Forest and the Trees.mp3 */,
 				184B4B151ACD8BD4004FDA30 /* rainSound.mp3 */,
 				18C3D6D91ACD78D6007F52B8 /* Easy Lemon.mp3 */,
 			);
@@ -191,6 +196,7 @@
 				4F9502541AC1ABF700FC894A /* Main.storyboard */,
 				18C3D6D71ACC13B1007F52B8 /* background2.png */,
 				4F9502571AC1ABF700FC894A /* Images.xcassets */,
+				184B4B191ACDA940004FDA30 /* instrucoes.png */,
 				18C3D6DC1ACD7E82007F52B8 /* cidade2.png */,
 				4F9502591AC1ABF700FC894A /* LaunchScreen.xib */,
 				18C3D6DB1ACD78F2007F52B8 /* Sound Files */,
@@ -340,8 +346,10 @@
 				18C3D6DD1ACD7E82007F52B8 /* cidade2.png in Resources */,
 				4F95025B1AC1ABF700FC894A /* LaunchScreen.xib in Resources */,
 				18C3D6F11ACD85BE007F52B8 /* TinyBits.sks in Resources */,
+				184B4B181ACDA371004FDA30 /* The Forest and the Trees.mp3 in Resources */,
 				18C3D6DA1ACD78D6007F52B8 /* Easy Lemon.mp3 in Resources */,
 				4F9502581AC1ABF700FC894A /* Images.xcassets in Resources */,
+				184B4B1A1ACDA940004FDA30 /* instrucoes.png in Resources */,
 				4F9502501AC1ABF700FC894A /* GameScene.sks in Resources */,
 				184B4B161ACD8BD4004FDA30 /* rainSound.mp3 in Resources */,
 				4F9502561AC1ABF700FC894A /* Main.storyboard in Resources */,
