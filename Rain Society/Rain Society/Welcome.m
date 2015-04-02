@@ -11,6 +11,7 @@
 #import "GameViewController.h"
 #import "GameScene.h"
 #import "RSAudioPlayer.h"
+#import "Tutorial.h"
 
 @implementation SKScene (Unarchive)
 
@@ -55,15 +56,16 @@
     
     /*Configura botão de inicio*/
 
-    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    GameScene *scene = (GameScene*)[Tutorial sceneWithSize:(skView.frame.size)];
     scene.scaleMode = SKSceneScaleModeAspectFill;
+
     
-    RSButton* startButton = [[RSButton alloc] initWithText:@"Começar"];
+    RSButton* startButton = [[RSButton alloc] initWithText:@"Iniciar"];
     [startButton setTexture:[SKTexture textureWithImageNamed:@"start"]];
     [startButton setZPosition:200];
     [startButton setPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame))];
     [startButton setHandler:^{
-        [player stopSounds:YES];
+        [player stopSounds:NO];
         [skView presentScene:scene];
     }];
     [self addChild:startButton];

@@ -43,7 +43,7 @@
     [self.backgroundImage setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame))];
     [self.backgroundImage setSize:CGSizeMake(self.size.width,self.size.height)];
     [self addChild:self.backgroundImage];
-    /*Seta a musica
+    /*Seta a musica*/
     RSAudioPlayer *player = [[RSAudioPlayer alloc]init];
     RSSound *music = [[RSSound alloc]init];
     music.nomeDoSom = @"StartSong";
@@ -52,7 +52,6 @@
     [player.SoundArray addObject:music];
     player.BGMPlayer.numberOfLoops=-1;
     [player tocaSom:@"StartSong" comVolume:0.2];
-    */
     /*Configura botão de inicio*/
     
     GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
@@ -63,7 +62,7 @@
     [startButton setZPosition:200];
     [startButton setPosition:CGPointMake(CGRectGetMidX(self.frame)+200,CGRectGetMidY(self.frame)+50)];
     [startButton setHandler:^{
-       // [player stopSounds:YES];
+        [player stopSounds:YES];
         [skView presentScene:scene];
     }];
     [self addChild:startButton];

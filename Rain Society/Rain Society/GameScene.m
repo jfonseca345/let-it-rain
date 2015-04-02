@@ -115,23 +115,14 @@
     [self addChild:restartButton];
     
     
-    GameScene *tutorial = (GameScene*)[Tutorial sceneWithSize:(skView.frame.size)];
-    tutorial.scaleMode = SKSceneScaleModeAspectFill;
-    RSButton* tutorialButton = [[RSButton alloc] initWithText:@"Tutorial"];
-    [tutorialButton setZPosition:200];
-    [tutorialButton setPosition:CGPointMake(CGRectGetMidX(self.frame)+300,CGRectGetHeight(self.frame)-150)];
-    [tutorialButton setHandler:^{
-        [self.Mappon.audioPlayer stopSounds:YES];
-        [skView presentScene:tutorial];
-    }];
-    //[self addChild:tutorialButton];
-    
     GameScene *welcome = (GameScene*)[Welcome sceneWithSize:(skView.frame.size)];
     welcome.scaleMode = SKSceneScaleModeAspectFill;
-    RSButton* menuButton = [[RSButton alloc] initWithImageNamed:@"sair"];
-    [menuButton setScale:0.1];
+    
+    RSButton* menuButton = [[RSButton alloc] initWithText:@"Sair"];
+    //[menuButton setScale:100];
+    //[menuButton setTexture:[SKTexture textureWithImageNamed:@"sair"]];
     [menuButton setZPosition:500];
-    [menuButton setPosition:CGPointMake(CGRectGetMidX(self.frame)+350,CGRectGetHeight(self.frame)-150)];
+    [menuButton setPosition:CGPointMake(CGRectGetMidX(self.frame)+400,CGRectGetHeight(self.frame)-150)];
     [menuButton setHandler:^{
         [self.Mappon.audioPlayer stopSounds:YES];
         [skView presentScene:welcome];
