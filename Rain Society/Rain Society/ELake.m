@@ -27,6 +27,7 @@
         RSButton* spawnCloudButton = [[RSButton alloc] initWithText:@"Nuvem!"];
         [spawnCloudButton setColor:[UIColor redColor]];
         [spawnCloudButton setPosition:CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame)+50)];
+        [spawnCloudButton setZPosition:200];
         [spawnCloudButton setHandler:^{
         NSArray* childrenScene = [self.parent children];
         RSButton* popup;
